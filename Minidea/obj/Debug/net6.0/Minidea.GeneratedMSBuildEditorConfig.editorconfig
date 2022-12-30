@@ -9,141 +9,141 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Minidea
 build_property.RootNamespace = Minidea
-build_property.ProjectDir = C:\Users\Lenovo\Desktop\Minidea\Minidea\
+build_property.ProjectDir = C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lenovo\Desktop\Minidea\Minidea
+build_property.MSBuildProjectDirectory = C:\Users\Lenovo\Desktop\MinideaBackend\Minidea
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Account/Login.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/Blogs.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/Blogs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xCbG9ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/Create.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/Delete.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/Details.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/Edit.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Blog/SingleBlog.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Blog/SingleBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xTaW5nbGVCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Dashboard/Load.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Dashboard/Load.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXExvYWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/General/Create.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/General/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VuZXJhbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/General/Delete.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/General/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VuZXJhbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/General/Details.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/General/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VuZXJhbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/General/Edit.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/General/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VuZXJhbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/General/Generals.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/General/Generals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VuZXJhbFxHZW5lcmFscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Home/Create.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Home/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Home/Delete.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Home/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Home/Details.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Home/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Home/Edit.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Home/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Home/Main.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Home/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxNYWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Place/Create.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Place/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGxhY2VcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Place/Delete.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Place/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGxhY2VcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Place/Details.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Place/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGxhY2VcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Place/Edit.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Place/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGxhY2VcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Place/Places.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Place/Places.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGxhY2VcUGxhY2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/Views/Shared/_LoginLayout.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/_ViewImports.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Areas/Admin/_ViewStart.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Areas/Admin/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/Blog/Blogs.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/Blog/Blogs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/Blog/SingleBlog.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/Blog/SingleBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xTaW5nbGVCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/Home/Index.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/_ViewImports.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Minidea/Minidea/Views/_ViewStart.cshtml]
+[C:/Users/Lenovo/Desktop/MinideaBackend/Minidea/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

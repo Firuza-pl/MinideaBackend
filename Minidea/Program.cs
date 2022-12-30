@@ -1,21 +1,22 @@
-using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Minidea.DAL;
 using Minidea.Models;
-using static System.Formats.Asn1.AsnWriter;
-using IConfiguration = AutoMapper.IConfiguration;
+
+IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
 var builder = WebApplication.CreateBuilder(args);
 
-var provider = builder.Services.BuildServiceProvider();
-//var configuration=provider.GetRequiredService<IConfiguration>();
+builder.Services.AddDbContext<Db_MinideaContext>(options =>
+    options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddControllersWithViews(); 
+
+builder.Services.AddControllersWithViews();
+
+//var provider = builder.Services.BuildServiceProvider();
+//var configuration=provider.GetRequiredService<IConfiguration>();
 
 
 builder.Services.Configure<CookiePolicyOptions>(options =>
@@ -25,11 +26,6 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-
-builder.Services.AddDbContext<Db_MinideaContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration["ConnectionStrings:Default"]);
-});
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
 {
@@ -42,10 +38,19 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
 .AddDefaultUI()
 .AddDefaultTokenProviders();
 
-builder.Services.AddMvc();
-
-
 var app = builder.Build();
+
+//using (var scope = app.Services.CreateScope())
+//{
+//    //var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+//    //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+//    //var context = scope.ServiceProvider.GetRequiredService<Db_MinideaContext>();
+//    //await DefaultRoles.SeedAsync(userManager, roleManager);
+//    var services = scope.ServiceProvider;
+
+//    DbInitializers.Seed(services); //context, userManager, roleManager, builder.Configuration .Wait();
+//}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -73,16 +78,6 @@ app.UseEndpoints(routes =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-//var scopeFactory =  provider.GetRequiredService<IServiceScopeFactory>();
-//using (var scope = scopeFactory.CreateScope())
-//{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-//    var context = scope.ServiceProvider.GetRequiredService<Db_MinideaContext>();
-//    //await DefaultRoles.SeedAsync(userManager, roleManager);
-
-//    DbInitializers.Seed(context, userManager, roleManager, builder.Configuration).Wait();
-//}
 
 app.Run();
 

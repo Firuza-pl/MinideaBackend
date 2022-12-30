@@ -1,0 +1,9 @@
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.RazorAssemblyInfo.cache
+C:\Users\Lenovo\Desktop\MinideaBackend\Minidea\obj\Debug\net5.0\Minidea.RazorAssemblyInfo.cs

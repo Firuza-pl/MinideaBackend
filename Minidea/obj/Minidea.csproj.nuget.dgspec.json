@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Desktop\\Minidea\\Minidea\\Minidea.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\MinideaBackend\\Minidea\\Minidea.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Desktop\\Minidea\\Minidea\\Minidea.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\MinideaBackend\\Minidea\\Minidea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Minidea\\Minidea\\Minidea.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\MinideaBackend\\Minidea\\Minidea.csproj",
         "projectName": "Minidea",
-        "projectPath": "C:\\Users\\Lenovo\\Desktop\\Minidea\\Minidea\\Minidea.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\MinideaBackend\\Minidea\\Minidea.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Desktop\\Minidea\\Minidea\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\MinideaBackend\\Minidea\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,33 +49,33 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
-            "ConfigMapper": {
-              "target": "Package",
-              "version": "[1.1.1, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
