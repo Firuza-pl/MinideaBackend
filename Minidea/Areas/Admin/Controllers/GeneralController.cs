@@ -84,7 +84,7 @@ namespace Minidea.Areas.Admin.Controllers
                 FacebookLink = staticData.FacebookLink,
                 InstagramLink = staticData.InstagramLink,
                 LinkedinLink = staticData.LinkedinLink,
-                PhotoURL = filename,
+                PhotoURL = filename, 
                 //IsActive = true
             };
 
