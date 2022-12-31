@@ -1,56 +1,99 @@
-﻿<div class="row">
+﻿@{
+    @model StaticData
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+        .photo-convert{
+            width: 300px;
+    height: 200px;
+    }
+
+    .photo-convert img{
+        width: 100%;
+    height: 100%;
+    }
+
+</style>
+<div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">İdarə tablosu yarat</h4>
+                <h4 class="card-title">İdarə tablosuna düzəliş et</h4>
                 <hr>
-                <form class="forms-sample">
+                <form class="forms-sample" method="post" class="mt-4" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputName1">Əlaqə nömrəsi (1) </label>
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                       placeholder="Nömrə: +994 xx xxx xx xx">
+                                <label asp-for="PhoneOne">Əlaqə nömrəsi (1)</label>
+                                <input asp-for="PhoneOne" class="form-control" placeholder="Nömrə: +994 xx xxx xx xx" />
+                                <span asp-validation-for="PhoneOne" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputName1">Əlaqə nömrəsi (2) </label>
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                       placeholder="Nömrə: +994 xx xxx xx xx">
+                                <label asp-for="MobileTwo">Əlaqə nömrəsi (2)</label>
+                                <input asp-for="MobileTwo" class="form-control" placeholder="Nömrə: +994 xx xxx xx xx" />
+                                <span asp-validation-for="MobileTwo" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MobileThree">Əlaqə nömrəsi (3)</label>
+                                <input asp-for="MobileThree" class="form-control" placeholder="Nömrə: +994 xx xxx xx xx" />
+                                <span asp-validation-for="MobileThree" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputName1">Əlaqə nömrəsi (3) </label>
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                       placeholder="Nömrə: +994 xx xxx xx xx">
+                                <label asp-for="FacebookLink">FB-link</label>
+                                <input asp-for="FacebookLink" class="form-control" placeholder="https://www.facebook.com/profile." />
+                                <span asp-validation-for="FacebookLink" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputName1">E-poçt</label>
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                       placeholder="E-poçt: xxxx@xxx.com/az">
+                                <label asp-for="InstagramLink">Instagram link</label>
+                                <input asp-for="InstagramLink" class="form-control" placeholder="https://www.instagram.com/username/" />
+                                <span asp-validation-for="InstagramLink" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="LinkedinLink">Linkedin link</label>
+                                <input asp-for="LinkedinLink" class="form-control" placeholder="https://www.linkedin.com/profile/" />
+                                <span asp-validation-for="LinkedinLink" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleInputName1">Logo yüklə</label>
-                                <div class="custom-file mt-3 mb-3">
-                                    <input type="file" class="form-control file-upload-info custom-file-input" id="customFile">
+                                <label asp-for="Email">E-poçt</label>
+                                <input asp-for="Email" class="form-control" placeholder="E-poçt: xxxx@xxx.com/az" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Photo">Brandin Şəklini seçin</label>
+                                <div class="photo-convert">
+                                    <img src="~/img/@Model.PhotoURL" class="img-fluid img-thumbnail">
+                                    <div class="uploadImage custom-upload-image">
+                                        <i class="fal fa-camera-alt"></i>
+                                    </div>
                                 </div>
+
+                                <input id="uploadInput" asp-for="Photo" accept="image/*" class="form-control" />
+                                <span asp-validation-for="Photo" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="col-md-6" style="margin-top: 26px;
+                        <div class="col-md-4" style="margin-top: 26px;
                       text-align: right;">
-                            <label for="exampleInputName1"></label>
-                            <button type="submit" class="btn btn-dark me-2"> Yenilə </button>
-                            <button class="btn btn-light">Geri</button>
+                            <input type="submit" class="btn btn-dark me-2" value="Dəyiş" />
+                            <button class="btn btn-light"> <a style="color:#222" asp-controller="general" asp-action="generals"> Geri </a> </button>
                         </div>
                     </div>
 

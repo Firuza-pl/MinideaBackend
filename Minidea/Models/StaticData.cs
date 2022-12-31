@@ -34,6 +34,6 @@ namespace Minidea.Models
 
         [NotMapped]
         public IFormFile? Photo { get; set; }
-
+        public bool IsActive { get; set; }
     }
 }

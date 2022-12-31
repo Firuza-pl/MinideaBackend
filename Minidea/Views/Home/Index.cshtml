@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    @model HomePageViewModel
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -104,7 +108,7 @@
             </div>
         </div>
     </section>
-    <!-- services-->
+    <!-- services PARTIAL-->
     <section class="page-section" id="services">
         <div class="container-fluid">
             <div class="row bg-light">
@@ -223,7 +227,7 @@
         </div>
         </div>
     </section>
-    <!-- ads-->
+    <!-- ads PARTIAL-->
     <section class="page-section" id="portfolio">
         <div class="container-fluid">
             <div class="row bg-light">
@@ -531,7 +535,7 @@
         </div>
         </div>
     </section>
-    <!-- blog-->
+    <!-- blog PARTIAL-->  
     <section class="page-section" id="blog">
         <div class="container-fluid">
             <div class="row bg-light">
@@ -616,7 +620,7 @@
             </div>
         </div>
     </section>
-    <!-- blog-->
+    <!-- contact-->
     <section class="page-section" id="contact">
         <div class="container-fluid">
             <div class="row bg-light">
@@ -644,35 +648,12 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fugit
                             dolor voluptatibus in optio laboriosam soluta
                         </p>
-
-                        <p class="color-222"> <b>Mobil nömrələrimiz:</b> </p>
-                        <span class=""> +994775542101</span>
-                        </br>
-                        <span class="m-30"> +994775542101</span>
-                        </br>
-                        <span class="m-30"> +994775542101</span>
-                        </br>
-                        <hr>
-                        <p class="color-222"> <b>E-poçt hesabımız:</b> </p>
-                        <span class="m-28">rustemlifiruze@gmail.com</span>
-                        </br>
-                        <hr>
-                        <p class="color-222"> <b>Sosial şəbəkə:</b> </p>
-                        <div class="col-lg-12 my-3 my-lg-0 row align-items-center">
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/" target="_blank"
-                               aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/" target="_blank"
-                               aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/" target="_blank"
-                               aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        </p>
+                           @await Component.InvokeAsync("Contact")
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">
@@ -681,7 +662,6 @@
             </div>
         </div>
     </footer>
-
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="fa fa-arrow-up"></i>
     </a>

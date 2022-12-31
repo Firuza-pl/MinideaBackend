@@ -10,6 +10,6 @@ namespace Minidea.Models
         public string? CategoryName { get; set; }
         public int? Type { get; set; }
         public int? Count { get; set; }
-        public virtual ICollection<BlogsCategories>? Categories { get; set; }
+        public virtual ICollection<Blogs>? Blogss { get; set; }
     }
 }

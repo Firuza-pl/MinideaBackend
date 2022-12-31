@@ -1,0 +1,26 @@
+﻿@{
+    @model StaticData
+    Layout = null;
+}
+
+<p class="color-222"> <b>Mobil nömrələrimiz:</b> </p>
+<span class="">  @Model.PhoneOne </span>
+                        </br>
+<span class="m-30"> @Model.MobileTwo </span>
+                        </br>
+<span class="m-30"> @Model.MobileThree </span>
+                        </br>
+<hr>
+<p class="color-222"> <b>E-poçt hesabımız:</b> </p>
+<span class="m-28">@Model.Email</span>
+                        </br>
+<hr>
+<p class="color-222"> <b>Sosial şəbəkə:</b> </p>
+<div class="col-lg-12 my-3 my-lg-0 row align-items-center">
+    <a class="btn btn-dark btn-social mx-2" href="@Model.InstagramLink" target="_blank"
+       aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a class="btn btn-dark btn-social mx-2" href="@Model.FacebookLink" target="_blank"
+       aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a class="btn btn-dark btn-social mx-2" href="@Model.LinkedinLink" target="_blank"
+       aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
