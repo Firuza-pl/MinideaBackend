@@ -22,7 +22,10 @@ button a {
 
 a {
     text-decoration: none;
-    color: #fff !important;
+}
+
+.masthead a {
+    color: #ab0e0e !important;
 }
 
 #main-table th, #main-table td {

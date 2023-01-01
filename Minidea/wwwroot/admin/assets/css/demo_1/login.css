@@ -44,11 +44,11 @@ right: 20px;
 top: -45px;
 }
 
-.input-group-prepend span{
-width: 50px;
-background-color: #2a2e5e;
-color: black;
-border:0 !important;
+.input-group-prepend span {
+    width: 50px;
+    background-color: #ca1e0e;
+    color: black;
+    border: 0 !important;
 }
 
 input:focus{
@@ -71,7 +71,7 @@ margin-right: 5px;
 
 .login_btn{
 color: #fff;
-background-color: #2a2e5e;
+background-color: #ca1e0e;
 width: 100px;
 }
 
