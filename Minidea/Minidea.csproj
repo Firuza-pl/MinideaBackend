@@ -1041,6 +1041,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Mapping\" />
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\img\backgroundImages\" />
     <Folder Include="wwwroot\img\staticdata\" />
   </ItemGroup>
 

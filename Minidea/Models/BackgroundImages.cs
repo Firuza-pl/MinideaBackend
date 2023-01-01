@@ -6,11 +6,10 @@ namespace Minidea.Models
     public class BackgroundImages
     {
         public int Id { get; set; }
-
-        [Required, StringLength(100)]
         public string? PhotoURL { get; set; }
-
         [NotMapped]
-        public IFormFile? Photo { get; set; }
+        public IFormFile? Photo{ get; set; }
+        public bool IsActive { get; set; }
+
     }
 }

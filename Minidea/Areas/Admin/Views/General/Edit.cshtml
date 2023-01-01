@@ -23,6 +23,7 @@
                 <hr>
                 <form class="forms-sample" method="post" class="mt-4" enctype="multipart/form-data">
                     <div class="row">
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="PhoneOne">Əlaqə nömrəsi (1)</label>
@@ -48,7 +49,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label asp-for="FacebookLink">FB-link</label>
+                                <label asp-for="FacebookLink">Facebook link</label>
                                 <input asp-for="FacebookLink" class="form-control" placeholder="https://www.facebook.com/profile." />
                                 <span asp-validation-for="FacebookLink" class="text-danger"></span>
                             </div>
@@ -92,8 +93,9 @@
                         </div>
                         <div class="col-md-4" style="margin-top: 26px;
                       text-align: right;">
-                            <input type="submit" class="btn btn-dark me-2" value="Dəyiş" />
-                            <button class="btn btn-light"> <a style="color:#222" asp-controller="general" asp-action="generals"> Geri </a> </button>
+                            <label for="exampleInputName1"></label>
+                            <input type="submit" class="btn btn-warning btn-icon-text" value="Dəyiş" />
+                            <button class="btn btn-dark"> <a style="color:#222" asp-controller="general" asp-action="generals"> Geri </a> </button>
                         </div>
                     </div>
 

@@ -10,6 +10,8 @@ using System.Drawing.Drawing2D;
 namespace Minidea.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
+
     public class GeneralController : Controller
     {
         private readonly Db_MinideaContext _context;
