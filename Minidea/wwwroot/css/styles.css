@@ -7,7 +7,6 @@
     --bs-pink: #d63384;
     --bs-red: #dc3545;
     --bs-orange: #fd7e14;
-    --bs-yellow: rgb(255 111 97);
     --bs-green: #198754;
     --bs-teal: #20c997;
     --bs-cyan: #0dcaf0;
@@ -257,7 +256,7 @@ sup {
 }
 
 a {
-    color: rgb(255 111 97);
+    color: rgb(65 65 65);
     text-decoration: underline;
 }
 
@@ -3271,9 +3270,9 @@ fieldset:disabled .btn {
     .btn-check:focus + .btn-primary,
     .btn-primary:focus {
         color: #fff;
-        background-color: #d9aa00;
-        border-color: #cca000;
-        box-shadow: 0 0 0 0.25rem rgba(255, 208, 38, 0.5);
+        background-color: #fa1600d9;
+        border-color: #fa1600d9;
+        box-shadow: 0 0 0 0.25rem #fa1600d9;
     }
 
     .btn-check:checked + .btn-primary,
