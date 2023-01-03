@@ -14,7 +14,7 @@ namespace Minidea.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var contact = _context.StaticDatas.FirstOrDefault();
+            var contact = _context.StaticDatas.Where(p => p.IsActive).OrderByDescending(p => p.Id).FirstOrDefault();
 
             return View(await Task.FromResult(contact));
         }

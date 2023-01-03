@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Minidea.DAL;
 
@@ -11,9 +12,10 @@ using Minidea.DAL;
 namespace Minidea.Migrations
 {
     [DbContext(typeof(Db_MinideaContext))]
-    partial class Db_MinideaContextModelSnapshot : ModelSnapshot
+    [Migration("20230101164914_editRequiredOne")]
+    partial class editRequiredOne
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

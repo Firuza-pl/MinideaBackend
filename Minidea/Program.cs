@@ -38,18 +38,19 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
 .AddDefaultUI()
 .AddDefaultTokenProviders();
 
+
 var app = builder.Build();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    //var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-//    //var context = scope.ServiceProvider.GetRequiredService<Db_MinideaContext>();
-//    //await DefaultRoles.SeedAsync(userManager, roleManager);
-//    var services = scope.ServiceProvider;
+using (var scope = app.Services.CreateScope())
+{
+    //var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+    //var context = scope.ServiceProvider.GetRequiredService<Db_MinideaContext>();
+    //await DefaultRoles.SeedAsync(userManager, roleManager);
+    var services = scope.ServiceProvider;
 
-//    DbInitializers.Seed(services); //context, userManager, roleManager, builder.Configuration .Wait();
-//}
+    await DbInitializers.Seed(services); //context, userManager, roleManager, builder.Configuration .Wait();
+}
 
 
 // Configure the HTTP request pipeline.

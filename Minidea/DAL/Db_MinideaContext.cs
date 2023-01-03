@@ -20,7 +20,8 @@ namespace Minidea.DAL
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=.;Database=MinideaDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer(@"Server=.;Database=MinideaDb;Trusted_Connection=True;MultipleActiveResultSets=true",
+                    builder => builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
             }
         }
 
@@ -31,7 +32,7 @@ namespace Minidea.DAL
         public DbSet<BlogsCategories> BlogsCategories { get; set; } = default!;
         public DbSet<StaticData> StaticDatas { get; set; } = default!;
 
-   
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

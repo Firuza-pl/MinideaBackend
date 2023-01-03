@@ -1,0 +1,19 @@
+﻿@{
+    @model IEnumerable<BackgroundImages>
+    Layout = null;
+}
+
+<div class="carousel-inner">
+    @{
+        var i = 0;
+        @foreach (var item in Model)
+        {
+            var itemClass = i++ == 0 ? "item active" : "item";
+            <div class="carousel-item @itemClass">
+                <img class="d-block w-100"
+                 src="img/@item.PhotoURL"
+                 alt="Image">
+            </div>
+        }
+    }
+</div>
