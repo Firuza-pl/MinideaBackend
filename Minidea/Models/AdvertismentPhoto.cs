@@ -15,6 +15,8 @@ namespace Minidea.Models
         [NotMapped]
         public IFormFile? Photo { get; set; }
 
+        public bool IsMain { get; set; }
+
         public virtual AdvertismentPlace? AdvertismentPlace { get; set; }
     }
 }

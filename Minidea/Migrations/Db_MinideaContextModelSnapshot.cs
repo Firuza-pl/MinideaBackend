@@ -169,6 +169,9 @@ namespace Minidea.Migrations
                     b.Property<string>("AreaTitle")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PhotoURL")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -191,6 +194,9 @@ namespace Minidea.Migrations
 
                     b.Property<string>("BigTitle")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

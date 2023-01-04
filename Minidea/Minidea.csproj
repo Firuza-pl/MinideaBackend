@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Mapping\**" />
+    <Content Remove="Areas\Admin\Mapping\**" />
+    <EmbeddedResource Remove="Areas\Admin\Mapping\**" />
+    <None Remove="Areas\Admin\Mapping\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="wwwroot\admin\assets\css\demo_1\login.css" />
     <None Include="wwwroot\admin\assets\css\demo_1\mainAdmin.css" />
@@ -1040,9 +1047,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Mapping\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\backgroundImages\" />
+    <Folder Include="wwwroot\img\placePhoto\" />
     <Folder Include="wwwroot\img\staticdata\" />
   </ItemGroup>
 

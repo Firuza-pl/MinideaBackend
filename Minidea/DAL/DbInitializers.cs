@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace Minidea.DAL
 {
     public class DbInitializers
-    {
+    {   
         public async static Task Seed(IServiceProvider serviceProvider)
         {
             var context = serviceProvider.GetService<Db_MinideaContext>();

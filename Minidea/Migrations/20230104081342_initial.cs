@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace Minidea.Migrations
 {
     public partial class initial : Migration
@@ -13,7 +15,8 @@ namespace Minidea.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BigTitle = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BigTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,7 +70,8 @@ namespace Minidea.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhotoURL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    PhotoURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,18 +86,11 @@ namespace Minidea.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Type = table.Column<int>(type: "int", nullable: true),
-                    Count = table.Column<int>(type: "int", nullable: true),
-                    BlogsCategoriesId = table.Column<int>(type: "int", nullable: true)
+                    Count = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BlogsCategories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_BlogsCategories_BlogsCategories_BlogsCategoriesId",
-                        column: x => x.BlogsCategoriesId,
-                        principalTable: "BlogsCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -102,14 +99,15 @@ namespace Minidea.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhoneOne = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MobileTwo = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MobileThree = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    FacebookLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    InstagramLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    LinkedinLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    PhotoURL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    PhoneOne = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    MobileTwo = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    MobileThree = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    FacebookLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    InstagramLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    LinkedinLink = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    PhotoURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,7 +122,8 @@ namespace Minidea.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AdvertismentPlaceId = table.Column<int>(type: "int", nullable: false),
                     AreaTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhotoURL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    PhotoURL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    IsMain = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -250,8 +249,7 @@ namespace Minidea.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     BigTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -262,11 +260,10 @@ namespace Minidea.Migrations
                 {
                     table.PrimaryKey("PK_Blogs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Blogs_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Blogs_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Blogs_BlogsCategories_CategoryId",
                         column: x => x.CategoryId,
@@ -325,14 +322,9 @@ namespace Minidea.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Blogs_UserId1",
+                name: "IX_Blogs_UserId",
                 table: "Blogs",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BlogsCategories_BlogsCategoriesId",
-                table: "BlogsCategories",
-                column: "BlogsCategoriesId");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

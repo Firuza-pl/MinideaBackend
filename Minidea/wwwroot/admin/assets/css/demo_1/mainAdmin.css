@@ -11,14 +11,12 @@
 }*/
 
 button a {
-    color: #fff;
+    color: #fff !important;
 }
 
-
-
-    button.btn-dark:hover a {
-        color: #fff;
-    }
+button.btn-dark:hover a {
+    color: #fff;
+}
 
 a {
     text-decoration: none;
@@ -54,11 +52,12 @@ thead {
     background: rgb(255 111 97);
     color: #fff;
 }
+
 .form-control {
     border: 1px solid #ca1e0e;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
     background: linear-gradient(to bottom, rgb(202 30 14) 0%, rgb(255 111 97) 100%) !important;
 }
 

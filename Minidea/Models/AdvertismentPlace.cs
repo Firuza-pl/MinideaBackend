@@ -6,7 +6,7 @@ namespace Minidea.Models
     {
         public int Id { get; set; }
         public string? BigTitle { get; set; }
-
+        public bool IsActive { get; set; }
         public virtual ICollection<AdvertismentPhoto>? AdvertismentPhotos { get; set; }
         [NotMapped]
         public ICollection<IFormFile>? AllPhotos { get; set; }
