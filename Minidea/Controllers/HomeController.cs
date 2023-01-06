@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Minidea.DAL;
 using Minidea.ViewModels;
+using Newtonsoft.Json;
 
 namespace Minidea.Controllers
 {
@@ -17,9 +18,31 @@ namespace Minidea.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Active = "Home";
+            //HomePageViewModel homePageViewModel = new HomePageViewModel
+            //{
+            var advertismentPlaces = _context.AdvertismentPlaces.Where(b => b.IsActive == true).OrderByDescending(b => b.Id).ToList();
+            //};
 
-            return View();
+            return View(advertismentPlaces);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Load(int id)
+        {
+            var advertismentPhotos = await _context.AdvertismentPhotos
+                .Where(p => p.IsMain == true && p.AdvertismentPlaceId == id).OrderByDescending(b => b.Id).ToListAsync();
+
+            //  return PartialView("_PhotoPlacePartialView", advertismentPhotos);
+
+            string value = string.Empty;
+
+            value = JsonConvert.SerializeObject(advertismentPhotos, Formatting.Indented, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }
+            );
+
+            return Json(value);
         }
     }
 }

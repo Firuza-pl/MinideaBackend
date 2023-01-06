@@ -17,6 +17,7 @@ namespace Minidea.Models
 
         public bool IsMain { get; set; }
 
+        [NotMapped]
         public virtual AdvertismentPlace? AdvertismentPlace { get; set; }
     }
 }

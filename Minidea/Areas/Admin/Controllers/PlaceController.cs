@@ -76,8 +76,6 @@ namespace Minidea.Areas.Admin.Controllers
 
             await _context.SaveChangesAsync();
 
-            bool isMain = true;
-
             foreach (var p in placePhoto.AllPhotos)
             {
                 if (p != null)
@@ -90,14 +88,10 @@ namespace Minidea.Areas.Admin.Controllers
                         {
                             AdvertismentPlaceId = place.Id,
                             AreaTitle=placePhoto.AreaTitle,
-                            PhotoURL = filename
-                        };
+                            PhotoURL = filename,
+                            IsMain = true
 
-                        if (isMain == true)
-                        {
-                            img.IsMain = true;
-                        }
-                        isMain = false;
+                    };
 
                         await _context.AdvertismentPhotos.AddAsync(img);
                     }

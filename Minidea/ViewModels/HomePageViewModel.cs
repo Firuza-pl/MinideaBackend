@@ -4,6 +4,8 @@ namespace Minidea.ViewModels
 {
     public class HomePageViewModel
     {
-        public IEnumerable<BackgroundImages>? backgroundImages { get; set; }
+        public IEnumerable<AdvertismentPlace>? advertismentPlaces { get; set; }
+        public IEnumerable<AdvertismentPhoto>? advertismentPhotos { get; set; }
+
     }
 }

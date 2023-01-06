@@ -3244,7 +3244,7 @@ textarea.form-control.is-invalid {
 .btn-check:focus + .btn,
 .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
+    box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
 }
 
 .btn:disabled,
@@ -12444,6 +12444,8 @@ header.masthead {
         }
 }
 
+
+
 #portfolio .portfolio-item {
     max-width: 26rem;
     margin-left: auto;
@@ -13039,20 +13041,31 @@ header#single-blog-header {
     background-position: center center;
     background-size: cover;
 }
-
-footer {
-    background: #212529;
-    color: #fff;
+#myDiv {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
 }
 
+    #myDiv img {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        background: #212529;
+        color: #fff;
+    }
+ 
 .ads-background {
-    height: 560px;
+    height: 490px;
     object-fit: cover;
 }
 
     .ads-background img {
         max-width: 100%;
-        height: auto;
+        height: 100%;
         width: 100%;
     }
 
