@@ -200,12 +200,12 @@ namespace Minidea.Areas.Admin.Controllers
                 System.IO.File.Delete(computerPhoto);
             }
 
-            _context.AdvertismentPhotos.RemoveRange(advertismentPhoto);
+            _context.AdvertismentPhotos.Remove(data);
 
             await _context.SaveChangesAsync();
             ViewBag.Active = "Home";
 
-            return RedirectToAction(nameof(Places));
+            return RedirectToAction(nameof(Edit), new { id = data.AdvertismentPlaceId });
         }
 
         //SİNGLE PLACE

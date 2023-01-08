@@ -1,1 +1,87 @@
-﻿<h2>Blog</h2>
+﻿@{
+    @model IEnumerable<Blogs>
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="card-title text-center">
+                            Bloglar
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="card-description">
+                            <button type="button" class="btn btn-purple btn-icon-text" style="width:100%">
+                                <a asp-action="CreateCategory" asp-controller="Blog">
+                                    +  Kateqoriya əlavə et
+                                </a>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="card-description">
+                            <button type="button" class="btn btn-purple btn-icon-text" style="width:100%">
+                                <a asp-action="Create" asp-controller="Blogs">
+                                    +  Blog əlavə et
+                                </a>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="main-table" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none;"></th>
+                                        <th>Blog adı </th>
+                                        <th>Alt başlıq </th>
+                                        <th>Mətn </th>
+                                        <th>Tarix </th>
+                                        <th>Əməliyyatlar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderByDescending(p => p.Id))
+                                    {
+                                        <tr class="odd">
+                                            <td style="display:none;">@item.Id</td>
+                                            <td>@item.BigTitle.</td>
+                                            <td>@item.SubTitle.</td>
+                                            <td>@item.Text.</td>
+                                            <td>@item.Date.</td>
+                                            <td>
+                                                <a title="Sil" asp-action="DeleteSinglePlace" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-danger btn-icon">
+                                                        <i class="mdi mdi-delete-forever"></i>
+                                                    </button>
+                                                </a>
+                                                <a title="Düzəliş et" asp-action="EditSinglePlace" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-warning  btn-icon">
+                                                        <i class="mdi mdi-table-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <a title="Ətraflı bax" asp-action="edit" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-success btn-icon">
+                                                        <i class="mdi mdi-information-variant"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
