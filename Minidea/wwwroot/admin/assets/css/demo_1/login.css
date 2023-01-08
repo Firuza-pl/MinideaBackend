@@ -46,7 +46,7 @@ top: -45px;
 
 .input-group-prepend span {
     width: 50px;
-    background-color: #ca1e0e;
+    background-color: #C0548D;
     color: black;
     border: 0 !important;
 }
@@ -69,10 +69,10 @@ margin-left: 15px;
 margin-right: 5px;
 }
 
-.login_btn{
-color: #fff;
-background-color: #ca1e0e;
-width: 100px;
+.login_btn {
+    color: #fff;
+    background-color: #C0548D;
+    width: 100px;
 }
 
 .login_btn:hover{
