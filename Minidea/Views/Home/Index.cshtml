@@ -29,11 +29,12 @@
 </head>
 
 <style>
-         body {
-            font-family: 'Roboto Mono', serif;
-            font-size: 16px;
-          }
-    .backColor{
+    body {
+        font-family: 'Roboto Mono', serif;
+        font-size: 16px;
+    }
+
+    .backColor {
         background-color: rgb(10 10 10 / 68%) !important;
     }
 
@@ -65,7 +66,7 @@
     <header id="home">
         <div class="container-fluid p-0 wow fadeIn">
             <div id="header-carousel" class="carousel slide pointer-event" data-bs-ride="carousel">
-                @await Component.InvokeAsync("BackgroundImages");
+                @await Component.InvokeAsync("BackgroundImages")
             </div>
         </div>
     </header>
@@ -905,24 +906,24 @@
                         },
                         timeout: 15000,
 
-                    error: function() {
-                        alert("error");
-                    }
-                });
-        }
-                        catch (e) {
-            alert(e.message);
-        }
+                        error: function() {
+                            alert("error");
+                        }
                     });
+                }
+                catch (e) {
+                    alert(e.message);
+                }
+            });
 
-        //clear carusel after close
-        $("#exampleModal").on("hidden.bs.modal", function() {
-            $('#carrusel').empty();
+            //clear carusel after close
+            $("#exampleModal").on("hidden.bs.modal", function() {
+                $('#carrusel').empty();
+            });
+
+
+
         });
-
-
-
-                });
     </script>
 </body>
 

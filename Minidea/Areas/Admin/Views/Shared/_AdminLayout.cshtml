@@ -31,15 +31,15 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
-                <li class="nav-item nav-profile border-bottom">
+                <li class="nav-item nav-profile border-bottom" style="background: #fff;">
                     <a href="#" class="nav-link flex-column">
-                        <div class="nav-profile-image">
-                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                                 alt="profile" />
-                            <!--change to offline or busy as needed-->
-                        </div>
+                        @*   <div class="nav-profile-image">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                        alt="profile" />
+                        <!--change to offline or busy as needed-->
+                        </div>*@
                         <div class="nav-profile-text d-flex ms-0 mb-3 flex-column">
-                            <span class="font-weight-semibold mb-1 mt-2 text-center">Firuza Poladzada</span>
+                            <span class="font-weight-semibold mb-1 mt-2 text-center">Minidea Logo</span>
                         </div>
                     </a>
                 </li>
@@ -47,36 +47,18 @@
                 @Url.Action("Index","Dashboard")
                 *@
                 <li class="pt-2 pb-1">
-                    <span class="nav-item-head">Menu</span>
+                    <span class="nav-item-head"></span>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" asp-action="load" asp-controller="dashboard">
                         <i class="mdi mdi-collage menu-icon"></i>
-                        <span class="menu-title">Ümumi</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="generals" asp-controller="general">
-                        <i class="mdi mdi-settings menu-icon"></i>
-                        <span class="menu-title">İdarə tablosu</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  asp-action="main" asp-controller="home">
-                        <i class="mdi mdi-domain menu-icon"></i>
                         <span class="menu-title">Əsas səhifə</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="places" asp-controller="place">
-                        <i class="mdi mdi-monitor menu-icon"></i>
-                        <span class="menu-title">Reklam məkanları</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="blogs" asp-controller="blog">
-                        <i class="mdi mdi-note-text menu-icon"></i>
-                        <span class="menu-title">Bloglar</span>
+                    <a  class="nav-link" href="https://localhost:7229/">
+                        <i class="mdi mdi-web menu-icon"></i> 
+                        <span class="menu-title">Sayt</span>
                     </a>
                 </li>
             </ul>
@@ -118,7 +100,7 @@
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
-                            Copyright © 2023 <a href="https://www.bootstrapdash.com/" target="_blank">Firuza Poladzada</a>. All rights reserved.
+                            Copyright © 2023 <a href="https://www.bootstrapdash.com/" target="_blank">Firuza Poladzada</a>
                         </span>
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
                             MiniIdea <i class="mdi mdi-heart text-danger"></i>

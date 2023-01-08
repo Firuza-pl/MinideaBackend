@@ -66,17 +66,19 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label asp-for="Photo">Brandin Şəklini seçin</label>
-                                <div class="custom-file mb-3">
-                                    <input type="file" class="form-control file-upload-info custom-file-input" id="customFile" asp-for="Photo" accept="image/*">
-                                    <span asp-validation-for="Photo" class="text-danger"></span>
+                                 <label asp-for="Photo">Şəkili seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImage d-flex justify-content-center align-items-center">
+                                    </div>
                                 </div>
+                                <input id="uploadInput" asp-for="Photo" accept="image/*" type="file" class="form-control uploadInput form-control" />
+                                <span asp-validation-for="Photo" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-4" style="margin-top: 26px;
                       text-align: right;">
                             <label for="exampleInputName1"></label>
-                            <input type="submit" class="btn btn-warning btn-icon-text" value="Yarat" />
+                            <input type="submit" class="btn btn-purple btn-icon-text" value="Yarat" />
                             <button class="btn btn-dark"> <a asp-controller="general" asp-action="generals"> Geri </a> </button>
                         </div>
                     </div>

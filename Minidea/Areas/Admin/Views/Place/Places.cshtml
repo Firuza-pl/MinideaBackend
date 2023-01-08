@@ -1,5 +1,5 @@
 ﻿@{
-    @model IEnumerable<PlacePhotoVIewModel>
+    @model IEnumerable<AdvertismentPlace>
     ViewData["Title"] = "Index";
 }
 
@@ -7,29 +7,73 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">
-                    İdarə tablosu
-                </h4>
-                <p class="card-description">
-                    <button type="button" class="btn btn-warning btn-icon-text">
-                        <a asp-action="create" asp-controller="Place">
-                            Əlavə et
-                        </a>
-                    </button>
-                </p>
-                <div class="table-responsive">
-                    <table id="main-table" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th style="display:none;"></th>
-                                <th>Məkan adı (böyük başlıq)</th>
-                                <th>Məkan adı (kiçik başlıq)</th>
-                                <th>Əməliyyatlar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="card-title text-center">
+                            Reklam məkanları
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="card-description">
+                            <button type="button" class="btn btn-purple btn-icon-text" style="width:100%">
+                                <a asp-action="createSinglePlace" asp-controller="Place">
+                                    +  Məkan əlavə et
+                                </a>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="card-description">
+                            <button type="button" class="btn btn-purple btn-icon-text" style="width:100%">
+                                <a asp-action="create" asp-controller="Place">
+                                    +  Məkan filialı əlavə et
+                                </a>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="main-table" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none;"></th>
+                                        <th>Məkan adı (böyük başlıq)</th>
+                                        <th>Əməliyyatlar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderByDescending(b => b.IsActive == true))
+                                    {
+                                        <tr class="odd">
+                                            <td style="display:none;">@item.Id</td>
+                                            <td>@item.BigTitle.</td>
+                                            <td>
+                                                <a title="Sil" asp-action="delete" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-danger btn-icon">
+                                                        <i class="mdi mdi-delete-forever"></i>
+                                                    </button>
+                                                </a>
+                                                <a title="Düzəliş et" asp-action="edit" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-warning  btn-icon">
+                                                        <i class="mdi mdi-table-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <a title="Ətraflı bax" asp-action="details" asp-route-id="@item.Id">
+                                                    <button type="button" class="btn btn-inverse-success btn-icon">
+                                                        <i class="mdi mdi-information-variant"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

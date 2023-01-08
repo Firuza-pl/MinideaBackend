@@ -1,33 +1,50 @@
 ﻿<body class="text-center">
 
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-            <div class="inner">
-                <h3 class="masthead-brand">Minidea-ya xoş gəlmisiniz </h3>
-                <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link active" asp-controller="dashboard" asp-action="load">Ümumi</a>
-                    <a class="nav-link active"  asp-controller="general" asp-action="generals">İdarə Tablosu</a>
-                    <a class="nav-link active"  asp-controller="home" asp-action="main">Əsas Səhifə</a>
-                    <a class="nav-link active" asp-controller="blog" asp-action="blogs">Əsas Səhifə</a>
-                    <a class="nav-link" asp-controller="place" asp-action="places">Reklam Məkanları</a>
-                    <a class="nav-link" asp-controller="blog" asp-action="blogs">Bloglar</a>
-                </nav>
-            </div>
-        </header>
-@*
-        <main role="main" class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-            </p>
-        </main>
+        <div class="row">
+                    <div class="col-12 text-center"> 
+                        <h3>Menu</h3>
+                    </div>
+                </div>
+   <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="menu-icon-admin text-center">
+                           <a class="nav-link" asp-action="generals" asp-controller="general">
+                                <i class="mdi mdi-settings menu-icon"></i>
+                                <p>İdarə tablosu</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
 
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">o</a>.</p>
-            </div>
-        </footer>*@
+                        <div class="menu-icon-admin text-center">
+                          <a class="nav-link"  asp-action="main" asp-controller="home">
+                                 <i class="mdi mdi-domain menu-icon"></i>
+                                <p>Arxa fon</p>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="menu-icon-admin text-center">
+                           <a class="nav-link" asp-action="places" asp-controller="place">
+                        <i class="mdi mdi-monitor menu-icon"></i>
+                                <p>Reklam</p>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="menu-icon-admin text-center">
+                               <a class="nav-link" asp-action="blogs" asp-controller="blog">
+                        <i class="mdi mdi-note-text menu-icon"></i>
+                                <p>Blog</p>
+                            </a>
+                        </div>
+                    </div>
+                
+                </div>
     </div>
 
 

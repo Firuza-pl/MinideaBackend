@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Minidea.DAL;
 using Minidea.Extensions;
 using Minidea.Models;
@@ -35,7 +36,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            return View(_context.AdvertismentPlaces.Where(p => p.IsActive == true).ToList());
         }
 
         public IActionResult Create(int? id)
@@ -44,6 +45,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+            ViewBag.Place = _context.AdvertismentPlaces.ToList();
             ViewBag.Active = "Home";
             return View();
         }
@@ -65,17 +67,6 @@ namespace Minidea.Areas.Admin.Controllers
                 return View(placePhoto);
             }
 
-            AdvertismentPlace place = new AdvertismentPlace()
-            {
-                BigTitle = placePhoto.BigTitle,
-                IsActive=true
-            };
-
-
-            await _context.AdvertismentPlaces.AddAsync(place);
-
-            await _context.SaveChangesAsync();
-
             foreach (var p in placePhoto.AllPhotos)
             {
                 if (p != null)
@@ -86,12 +77,12 @@ namespace Minidea.Areas.Admin.Controllers
 
                         AdvertismentPhoto img = new AdvertismentPhoto()
                         {
-                            AdvertismentPlaceId = place.Id,
-                            AreaTitle=placePhoto.AreaTitle,
+                            AdvertismentPlaceId = placePhoto.AdvertismentPlaceId,
+                            AreaTitle = placePhoto.AreaTitle,
                             PhotoURL = filename,
                             IsMain = true
 
-                    };
+                        };
 
                         await _context.AdvertismentPhotos.AddAsync(img);
                     }
@@ -100,6 +91,74 @@ namespace Minidea.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Places");
+        }
+
+        [ActionName("Edit")]
+        public IActionResult Edit(int? id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (id == null) return View("Error");
+            var staticData = _context.AdvertismentPhotos.Where(p => p.AdvertismentPlaceId == id);
+
+            return View(staticData);
+        }
+
+        [ActionName("EditPhotoLine")]
+        public IActionResult EditPhotoLine(int? id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (id == null) return View("Error");
+
+            AdvertismentPhoto? advertismentPhoto = _context.AdvertismentPhotos.Find(id);
+
+            return View(advertismentPhoto);
+        }
+
+        [ActionName("EditPhotoLine")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditPhotoLine(AdvertismentPhoto photoLineViewModel)
+        {
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            AdvertismentPhoto? newBackgroundImages = await _context.AdvertismentPhotos.FindAsync(photoLineViewModel.Id);
+
+            if (newBackgroundImages == null) return View("Error");
+
+
+            if (photoLineViewModel.Photo != null)
+            {
+                string computerPhoto = Path.Combine(_env.WebRootPath, "img", newBackgroundImages.PhotoURL);
+
+                if (System.IO.File.Exists(computerPhoto))
+                {
+                    System.IO.File.Delete(computerPhoto);
+                }
+
+                string filename = await photoLineViewModel.Photo.SaveAsync(_env.WebRootPath, "placePhoto");
+                photoLineViewModel.PhotoURL = filename;
+                newBackgroundImages.PhotoURL = photoLineViewModel.PhotoURL;
+            }
+
+            newBackgroundImages.IsMain = true;
+            newBackgroundImages.AreaTitle = photoLineViewModel.AreaTitle;
+
+            AdvertismentPlace advertismentPlace =  _context.AdvertismentPlaces.Find(newBackgroundImages.AdvertismentPlaceId);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Edit), new { id = advertismentPlace.Id });
         }
 
 

@@ -1,14 +1,24 @@
 .navbar .navbar-menu-wrapper {
-    background: rgb(255 111 97) !important;
+    background: linear-gradient(0deg, #C0548D 1%, #484A8A 99%) !important;
 }
 
 .sidebar .nav .nav-item:not(:nth-child(2)).active {
-    background: rgb(255 111 97) !important;
+    background: #fff !important;
 }
 
+    .sidebar .nav .nav-item:not(:nth-child(2)).active span, .sidebar .nav .nav-item:not(:nth-child(2)).active i {
+        color: #704d8b !important;
+    }
+
+.nav .nav-link span, .nav .nav-link i {
+    color: #fff !important;
+}
 /*.nav-link span, .nav-link i {
     color: #2a2e5e !important;
 }*/
+.sidebar {
+    background: linear-gradient(0deg, #C0548D 1%, #484A8A 99%) !important;
+}
 
 button a {
     color: #fff !important;
@@ -17,7 +27,10 @@ button a {
 button.btn-dark:hover a {
     color: #fff;
 }
-
+.btn-purple {
+    background: linear-gradient(0deg, #C0548D 1%, #484A8A 99%);
+    color: #fff;
+}
 a {
     text-decoration: none;
 }
@@ -31,7 +44,7 @@ a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
-    background: #ca1e0e;
+    background: #a7528d69;
 }
 
 #main-table td a {
@@ -49,18 +62,65 @@ table#main-table th img, table#main-table td img {
 }
 
 thead {
-    background: rgb(255 111 97);
+    background: rgb(24 24 24 / 78%);
     color: #fff;
 }
 
-.form-control {
-    border: 1px solid #ca1e0e;
-}
 
+/*
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    background: linear-gradient(to bottom, rgb(202 30 14) 0%, rgb(255 111 97) 100%) !important;
+    background: linear-gradient(0deg, #C0548D 1%, #484A8A 99%) !important;
+    color: #fff;
 }
-
+*/
 .dataTables_length {
     margin-bottom: 20px;
+}
+
+.menu-icon-admin {
+    border: 3px solid #C0548D;
+    background: #C0548D;
+    color: #fff;
+    padding: 60px 20px;
+    cursor: pointer;
+    transition: all .2s linear;
+    margin-top: 30px;
+}
+
+    .menu-icon-admin p, .menu-icon-admin i {
+        color: #fff;
+    }
+
+    .menu-icon-admin i {
+        font-size: 70px;
+    }
+
+    .menu-icon-admin p {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .menu-icon-admin:hover {
+        border: 3px solid #484A8A;
+        background: #484A8A;
+    }
+
+        .menu-icon-admin:hover p, .menu-icon-admin:hover i {
+            color: #fff;
+        }
+input#uploadInput {
+    display: inline-block;
+    width: 100%;
+    padding: 120px 0 0 0;
+    height: 100px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+    border-radius: 20px;
+    background-size: 60px 60px;
+}
+.table {
+    --bs-table-striped-bg: #fff !important;
 }

@@ -6,7 +6,7 @@ namespace Minidea.Models
     public class AdvertismentPhoto
     {
         public int Id { get; set; }
-        public int AdvertismentPlaceId { get; set; }
+        public int? AdvertismentPlaceId { get; set; }
         public string? AreaTitle { get; set; }
 
         [Required, StringLength(100)]
@@ -19,5 +19,7 @@ namespace Minidea.Models
 
         [NotMapped]
         public virtual AdvertismentPlace? AdvertismentPlace { get; set; }
+
+
     }
 }
