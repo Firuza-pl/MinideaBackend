@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="AdvertismentPlaceId">Məkan adı seçin (böyük başlıq)</label>
-                                   <select asp-for="AdvertismentPlaceId" asp-items="@(new SelectList(ViewBag.Place,"Id","BigTitle"))" style="width:100%; padding: 10px;border: 1px solid #e4e9f0;"></select>
+                                <select asp-for="AdvertismentPlaceId" asp-items="@(new SelectList(ViewBag.Place,"Id","BigTitle"))" style="width:100%; padding: 10px;border: 1px solid #e4e9f0;"></select>
                                 <span asp-validation-for="AdvertismentPlaceId" class="text-danger"></span>
                             </div>
                         </div>
@@ -26,9 +26,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                         
-                                   <div class="form-group">
-                                 <label asp-for="AllPhotos">Şəkili seçin</label>
+                            <div class="form-group">
+                                <label asp-for="AllPhotos">Şəkili seçin</label>
                                 <div class="uploadArea">
                                     <div class="uploadImage d-flex justify-content-center align-items-center">
                                     </div>

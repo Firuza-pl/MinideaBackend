@@ -25,10 +25,11 @@
     <link rel="stylesheet" href="~/admin/assets/css/demo_1/mainAdmin.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="~/css/fakeloader.css" />
+    <link rel="stylesheet" href="~/admin/assets/css/trumbowyg.min.css">
 </head>
 <style>
-    #fakeloader-overlay .loader{
-            border-bottom: 8px solid rgb(115 78 139);
+    #fakeloader-overlay .loader {
+        border-bottom: 8px solid rgb(115 78 139);
     }
 </style>
 
@@ -154,12 +155,41 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="~/admin/assets/js/main.js"> </script>
     <script src="~/js/fakeloader.js"></script>
+    <script src="~/admin/assets/js/trumbowyg.min.js"></script>
+    <script src="~/admin/assets/js/trumbowyg.cleanpaste.min.js"></script>
+    <script src="~/admin/assets/js/trumbowyg.pasteimage.min.js"></script>
     <!-- End custom js for this page -->
 </body>
 
 <script>
     window.FakeLoader.init({
         auto_hide: true
+    });
+    $(document).ready(function() {
+        $('#my-editor').trumbowyg({
+            btnsDef: {
+                // Customizable dropdowns
+                align: {
+                    dropdown: ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                    ico: 'justifyLeft'
+                }
+            },
+            btns: [
+                ['viewHTML'],
+                ['undo', 'redo'],
+                ['formatting'],
+                ['strong', 'em', 'del', 'underline'],
+                ['foreColor', 'backColor'],
+                ['link'],
+                ['insertImage', 'upload', 'base64', 'noembed', 'giphy'],
+                ['align'],
+                ['preformatted'],
+                ['horizontalRule'],
+                ['fullscreen']
+            ],
+            autogrow: true,
+
+        });
     });
 </script>
 
