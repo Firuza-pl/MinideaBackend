@@ -11,6 +11,7 @@ namespace Minidea.DAL
         public async static Task Seed(IServiceProvider serviceProvider)
         {
             var context = serviceProvider.GetService<Db_MinideaContext>();
+            //await context.Database.EnsureDeletedAsync();
             await context.Database.EnsureCreatedAsync();
 
 

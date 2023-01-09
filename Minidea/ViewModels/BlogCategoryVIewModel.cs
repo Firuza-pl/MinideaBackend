@@ -6,7 +6,7 @@ namespace Minidea.ViewModels
     public class BlogCategoryVIewModel
     {
         public int Id { get; set; }
-        public int? CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public int? UserId { get; set; }
         public string? CategoryName { get; set; }
         public string? BigTitle { get; set; }

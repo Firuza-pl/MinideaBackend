@@ -50,6 +50,45 @@ namespace Minidea.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(BlogCategoryVIewModel blogCategoryVIew)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (!blogCategoryVIew.Photo.IsImage())
+            {
+                ViewBag.Active = "Home";
+
+                ModelState.AddModelError("Photo", "File type should be image");
+
+                return View(blogCategoryVIew);
+            }
+
+            string filename = await blogCategoryVIew.Photo.SaveAsync(_env.WebRootPath, "blogs");
+            blogCategoryVIew.PhotoURL = filename;
+
+
+            Blogs blogs = new Blogs
+            {
+                PhotoUrl = filename,
+                CategoryId = blogCategoryVIew.CategoryId,
+                BigTitle = blogCategoryVIew.BigTitle,
+                SubTitle = blogCategoryVIew.SubTitle,
+                Text = blogCategoryVIew.Text,
+                Date = DateTime.Now,
+            };
+
+            await _context.Blogs.AddAsync(blogs);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Blogs");
+        }
+
+
         //Category
 
         public IActionResult BlogCategory()

@@ -14,6 +14,7 @@ namespace Minidea.DAL
         public Db_MinideaContext(DbContextOptions<Db_MinideaContext> options)
           : base(options)
         {
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

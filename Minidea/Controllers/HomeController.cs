@@ -18,12 +18,13 @@ namespace Minidea.Controllers
 
         public IActionResult Index()
         {
-            //HomePageViewModel homePageViewModel = new HomePageViewModel
-            //{
-            var advertismentPlaces = _context.AdvertismentPlaces.Where(b => b.IsActive == true).OrderByDescending(b => b.Id).ToList();
-            //};
+            BlogAdsViewModel homePageViewModel = new BlogAdsViewModel
+            {
+                Places = _context.AdvertismentPlaces.Where(b => b.IsActive == true).OrderByDescending(b => b.Id).ToList(),
+                Blogs = _context.Blogs.Include(p => p.Category).OrderByDescending(b => b.Id).Take(3).ToList()
+            };
 
-            return View(advertismentPlaces);
+            return View(homePageViewModel);
         }
 
         [HttpGet]

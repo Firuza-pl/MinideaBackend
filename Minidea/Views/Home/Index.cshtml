@@ -1,6 +1,5 @@
 ﻿@{
-    @model IEnumerable<AdvertismentPlace>
-
+    @model BlogAdsViewModel
 }
 
 <!DOCTYPE html>
@@ -237,7 +236,7 @@
                 </div>
             </div>
         </div>
-        <partial name="_PhotoPartialView" model="Model" />
+        <partial name="_PhotoPartialView" model="Model.Places" />
     </section>
     <!-- blog PARTIAL-->
     <section class="page-section" id="blog">
@@ -260,60 +259,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div data-aos="fade-down" data-aos-duration="800" class="col-md-4">
-                    <div class="card mb-4">
-                        <a href="#!">
-                            <img class="card-img-top"
-                                 src="https://img.freepik.com/free-vector/accountant-concept-illustration_114360-5938.jpg?w=740&t=st=1671811753~exp=1671812353~hmac=7b213e6841d216e26c8a2ffc939244f81c7f1ec48f27cfdf96e84402bf9b6bc7"
-                                 alt="...">
-                        </a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title h4">Başlıq</h2>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                                aliquid atque, nulla.
-                            </p>
-                            <a class="btn btn-primary" href="#!">Daha çox →</a>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-down" data-aos-duration="800" class="col-md-4">
-                    <div class="card mb-4">
-                        <a href="#!">
-                            <img class="card-img-top"
-                                 src="https://img.freepik.com/free-vector/learning-concept-illustration_114360-6186.jpg?w=740&t=st=1671811865~exp=1671812465~hmac=d5cbf14fe814ac830b59ec00c5d351305214162a833805b189cb121e64b14296"
-                                 alt="...">
-                        </a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 2, 2022</div>
-                            <h2 class="card-title h4">Başlıq</h2>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                                aliquid atque, nulla.
-                            </p>
-                            <a class="btn btn-primary" href="#!">Daha çox →</a>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-down" data-aos-duration="800" class="col-md-4">
-                    <div class="card mb-4">
-                        <a href="#!">
-                            <img class="card-img-top"
-                                 src="https://img.freepik.com/free-vector/work-time-concept-illustration_114360-1074.jpg?w=740&t=st=1671811842~exp=1671812442~hmac=24f8bcb7ea1413b0b0d598524d81f2442e6dbbc2e275e76cb57e6c0eba243818"
-                                 alt="...">
-                        </a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 2, 2022</div>
-                            <h2 class="card-title h4">Başlıq</h2>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                                aliquid atque, nulla.
-                            </p>
-                            <a class="btn btn-primary" href="#!">Daha çox →</a>
-                        </div>
-                    </div>
-                </div>
+                <partial name="_BlogPartialView" model="Model.Blogs" />
             </div>
             <div class="read-more">
                 <div class="row">

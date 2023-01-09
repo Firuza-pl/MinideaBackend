@@ -8,7 +8,6 @@ namespace Minidea.Models
         public int Id { get; set; }
         public int CategoryId { get; set; } 
         public virtual BlogsCategories? Category { get;set;}
-        public virtual AppUser?  User { get; set; }
         public string? BigTitle { get; set; }
         public string? SubTitle { get; set; }
         public string? Text { get; set; }

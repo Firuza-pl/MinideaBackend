@@ -1,0 +1,26 @@
+﻿@{
+    @model IEnumerable<Blogs>
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <div data-aos="fade-down" data-aos-duration="800" class="col-md-4">
+        <div class="card mb-4">
+            <a href="#!">
+                <img class="card-img-top"
+                 src="~/img/@item.PhotoUrl"
+                 alt="Sekil">
+            </a>
+            <div class="card-body">
+                <div class="small text-muted">@String.Format("{0:yyyy-MM-dd}", @item.Date)</div>
+                <h2 class="card-title h4">@item.BigTitle</h2>
+                <p class="card-text">
+                   @item.SubTitle
+                </p>
+                <a asp-action="SingleBlog" asp-controller="Blog" target="_blank" asp-route-id="@item.Id" class="btn btn-primary">Daha çox →</a>
+            </div>
+        </div>
+    </div>
+}

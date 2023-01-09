@@ -1049,6 +1049,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\backgroundImages\" />
+    <Folder Include="wwwroot\img\blogs\" />
     <Folder Include="wwwroot\img\placePhoto\" />
     <Folder Include="wwwroot\img\staticdata\" />
   </ItemGroup>
