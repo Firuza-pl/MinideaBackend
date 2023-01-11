@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -65,10 +66,11 @@ namespace Minidea.Areas.Admin.Controllers
             return RedirectToAction("Load", "Dashboard");
         }
 
+
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync();
-
+            await _siginInManager.SignOutAsync();
+            //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
 

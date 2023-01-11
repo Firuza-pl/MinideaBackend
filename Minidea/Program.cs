@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Minidea.DAL;
@@ -13,11 +15,9 @@ builder.Services.AddDbContext<Db_MinideaContext>(options =>
     options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 
+builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 builder.Services.AddControllersWithViews();
-
-//var provider = builder.Services.BuildServiceProvider();
-//var configuration=provider.GetRequiredService<IConfiguration>();
-
 
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
@@ -34,9 +34,21 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
 
     option.User.RequireUniqueEmail = true;
 })
-.AddEntityFrameworkStores<Db_MinideaContext>()
 .AddDefaultUI()
+.AddEntityFrameworkStores<Db_MinideaContext>()
 .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+
+    options.LoginPath = new PathString("/Admin/Account/Login");
+    options.AccessDeniedPath = new PathString("/Admin/Account/Login");
+    options.AccessDeniedPath = new PathString("/Admin/Account/Login");
+
+    options.SlidingExpiration = true;
+});
 
 
 var app = builder.Build();

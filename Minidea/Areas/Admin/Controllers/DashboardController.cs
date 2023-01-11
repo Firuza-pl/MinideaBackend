@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Minidea.DAL;
 using Minidea.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Minidea.Areas.Admin.Controllers
 {

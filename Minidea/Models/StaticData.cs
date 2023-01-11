@@ -8,16 +8,24 @@ namespace Minidea.Models
     {
         public int Id { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "Doldurulması vacibdir")]
+        [StringLength(200, MinimumLength = 2)]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Etibarlı telefon nömrəsi deyil")]
         public string? PhoneOne { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "Doldurulması vacibdir")]
+        [StringLength(200, MinimumLength = 2)]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Etibarlı telefon nömrəsi deyil")]
         public string? MobileTwo { get; set; }
 
-        [ StringLength(100)]
+        [StringLength(100)]
         public string? MobileThree { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "Doldurulması vacibdir")]
+        [StringLength(200, MinimumLength = 2)]
+        [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
 
         [StringLength(100)]
@@ -31,6 +39,7 @@ namespace Minidea.Models
 
         public string? PhotoURL { get; set; }
 
+        [Required(ErrorMessage = "Doldurulması vacibdir")]
         [NotMapped]
         public IFormFile? Photo { get; set; }
         public bool IsActive { get; set; }

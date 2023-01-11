@@ -8,6 +8,7 @@ using Minidea.Models;
 using Minidea.ViewModels;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Security.Claims;
 
 namespace Minidea.Areas.Admin.Controllers
 {
@@ -36,6 +37,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View(_context.Blogs.ToList());
         }
 
@@ -58,6 +60,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+          
             if (!blogCategoryVIew.Photo.IsImage())
             {
                 ViewBag.Active = "Home";
@@ -88,7 +91,6 @@ namespace Minidea.Areas.Admin.Controllers
             return RedirectToAction("Blogs");
         }
 
-
         //Category
 
         public IActionResult BlogCategory()
@@ -117,6 +119,12 @@ namespace Minidea.Areas.Admin.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
+            }
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Active = "Home";
+
+                return View(blogsCategories);
             }
             ViewBag.Active = "Home";
             BlogsCategories categories = new BlogsCategories

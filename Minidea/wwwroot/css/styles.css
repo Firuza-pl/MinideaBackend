@@ -66,7 +66,7 @@
 
 body {
     margin: 0;
-    font-family:  var(--bs-body-font-family);
+    font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
     line-height: var(--bs-body-line-height);
@@ -103,7 +103,7 @@ h1,
 .h1 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-   font-family: var(--bs-body-font-family);
+    font-family: var(--bs-body-font-family);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -374,7 +374,7 @@ select,
 optgroup,
 textarea {
     margin: 0;
-   font-family: var(--bs-body-font-family);
+    font-family: var(--bs-body-font-family);
     font-size: inherit;
     line-height: inherit;
 }
@@ -4479,7 +4479,7 @@ fieldset:disabled .btn {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: rgb(255 111 97);
+    color: #fff;
     text-decoration: none;
     /* transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; */
     transition: none !important;
@@ -5069,9 +5069,9 @@ fieldset:disabled .btn {
         color: rgba(0, 0, 0, 0.9);
     }
 
-.navbar-light .navbar-nav .nav-link {
+/*.navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.55);
-}
+}*/
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link:focus {
@@ -12321,14 +12321,14 @@ p {
     #mainNav .navbar-toggler {
         padding: 0.75rem;
         font-size: 0.75rem;
-       font-family: var(--bs-body-font-family);
+        font-family: var(--bs-body-font-family);
         text-transform: uppercase;
         font-weight: 700;
     }
 
     #mainNav .navbar-brand {
         color: #fff;
-       font-family: var(--bs-body-font-family);
+        font-family: var(--bs-body-font-family);
         font-weight: 700;
         letter-spacing: 0.0625em;
         text-transform: uppercase;
@@ -12339,9 +12339,9 @@ p {
         }
 
     #mainNav .navbar-nav .nav-item .nav-link {
-       font-family: var(--bs-body-font-family);
+        font-family: var(--bs-body-font-family);
         font-size: 0.95rem;
-        color: #fff;
+        color: #a3a3a3;
         letter-spacing: 0.0625em;
     }
 
@@ -12350,12 +12350,23 @@ p {
             color: rgb(255 111 97);
         }
 
+.fixed-top.scrolled {
+    background-color: #fff !important;
+    transition: background-color 200ms linear;
+}
+
+    .fixed-top.scrolled .nav-link {
+        transition: background-color 200ms linear;
+        color: #222;
+    }
+
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         border: none;
-        background-color: transparent;
+        background-color: #222;
+        ;
         transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
     }
 
@@ -12372,7 +12383,7 @@ p {
         #mainNav.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: #212529;
+            background-color: #ffffff;
         }
 
             #mainNav.navbar-shrink .navbar-brand {
@@ -12418,7 +12429,7 @@ header.masthead {
         font-weight: 700;
         line-height: 3.25rem;
         margin-bottom: 2rem;
-       font-family: var(--bs-body-font-family);
+        font-family: var(--bs-body-font-family);
     }
 
 @media (min-width: 768px) {
@@ -12485,7 +12496,7 @@ header.masthead {
 
         #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
             font-size: 1.5rem;
-           font-family: var(--bs-body-font-family);
+            font-family: var(--bs-body-font-family);
             font-weight: 700;
             margin-bottom: 0;
         }
@@ -12806,14 +12817,14 @@ header.masthead {
 .footer {
     text-align: center;
     font-size: 0.9rem;
-   font-family: var(--bs-body-font-family);
+    font-family: var(--bs-body-font-family);
 }
 
 /* my css */
 
 .parallax {
-    /* The image used */
-    background-image: url("https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    color: #fff;
+    background-image: url("https://img.freepik.com/premium-photo/flat-lay-desktop-with-agenda-glasses_23-2148397833.jpg?w=740");
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
@@ -12829,8 +12840,8 @@ header.masthead {
 }
 
 .about-txt {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     overflow: hidden;
     position: relative
 }
@@ -13039,6 +13050,7 @@ header#single-blog-header {
     background-position: center center;
     background-size: cover;
 }
+
 #myDiv {
     width: 300px;
     text-align: center;
@@ -13051,11 +13063,11 @@ header#single-blog-header {
         text-align: center;
     }
 
-    footer {
-        background: #212529;
-        color: #fff;
-    }
- 
+footer {
+    background: #212529;
+    color: #fff;
+}
+
 .ads-background {
     height: 490px;
     object-fit: cover;
@@ -13071,4 +13083,8 @@ header#single-blog-header {
     max-width: 100%;
     height: auto;
     width: 100%;
+}
+
+li.nav-item a {
+    font-size: 12px !important;
 }

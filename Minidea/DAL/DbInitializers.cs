@@ -39,13 +39,13 @@ namespace Minidea.DAL
                 FacebookLink = "FB",
                 InstagramLink = "INS",
                 LinkedinLink = "LINK",
-                PhotoURL = "Minidea",
+                PhotoURL = "/staticdata/logo-transparent",
                 IsActive = true
             };
 
             var back = new BackgroundImages
             {
-                PhotoURL = "https://www.maxpixel.net/static/photo/1x/Abstract-Background-Abstract-Design-Background-3063287.jpg",
+                PhotoURL = "/backgroundImages/background.jpg",
                 IsActive = true
             };
 

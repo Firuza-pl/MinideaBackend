@@ -8,6 +8,7 @@ using Minidea.Models;
 using Minidea.ViewModels;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Security.Claims;
 
 namespace Minidea.Areas.Admin.Controllers
 {
@@ -36,6 +37,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View(_context.AdvertismentPlaces.Where(p => p.IsActive == true).ToList());
         }
 
@@ -45,6 +47,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             ViewBag.Place = _context.AdvertismentPlaces.ToList();
             ViewBag.Active = "Home";
             return View();
@@ -58,11 +61,11 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             if (placePhoto.AllPhotos == null)
             {
                 ViewBag.Active = "Home";
                 ModelState.AddModelError("AllPhotos", "Xahiş olunur şəkil əlavə edin.");
-
                 return View(placePhoto);
             }
 
@@ -131,6 +134,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             AdvertismentPhoto? newBackgroundImages = await _context.AdvertismentPhotos.FindAsync(photoLineViewModel.Id);
 
             if (newBackgroundImages == null) return View("Error");
@@ -188,6 +192,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             AdvertismentPhoto? data = await _context.AdvertismentPhotos.FindAsync(advertismentPhoto.Id);
 
 
@@ -215,6 +220,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             ViewBag.Active = "Home";
             return View();
         }
@@ -227,6 +233,14 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Active = "Home";
+
+                return View(advertismentPlace);
+            }
+
             ViewBag.Active = "Home";
             AdvertismentPlace place = new AdvertismentPlace
             {
@@ -263,6 +277,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             AdvertismentPlace? place = await _context.AdvertismentPlaces.FindAsync(advertismentPlace.Id);
 
             if (place == null) return View("Error");
@@ -282,6 +297,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
 
             if (id == null) return View("Error");
 
@@ -303,6 +319,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             AdvertismentPlace? staticData = await _context.AdvertismentPlaces.FindAsync(advertismentPlace.Id);
 
             IEnumerable<AdvertismentPhoto> advertismentPhoto = _context.AdvertismentPhotos.Where(p => p.AdvertismentPlaceId == advertismentPlace.Id).ToList();

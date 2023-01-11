@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Minidea.DAL;
 using Minidea.Extensions;
 using Minidea.Models;
+using System.Security.Claims;
 
 namespace Minidea.Areas.Admin.Controllers
 {
@@ -31,6 +32,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View(_context.BackgroundImages.ToList());
         }
 
@@ -41,6 +43,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             ViewBag.Active = "Home";
 
             return View();
@@ -53,6 +56,12 @@ namespace Minidea.Areas.Admin.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
+            }
+
+            if (backgroundImages.Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Xahiş edirik şəkil yükləyin.");
+                return View(backgroundImages);
             }
 
             if (!backgroundImages.Photo.IsImage())
@@ -105,6 +114,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             BackgroundImages? newBackgroundImages = await _context.BackgroundImages.FindAsync(backgroundImages.Id);
 
             if (newBackgroundImages == null) return View("Error");
@@ -131,14 +141,13 @@ namespace Minidea.Areas.Admin.Controllers
             return RedirectToAction(nameof(Main));
         }
 
-
-
         public async Task<IActionResult> Details(int? id)
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
+
 
             if (id == null) return View("Error");
 
@@ -149,7 +158,6 @@ namespace Minidea.Areas.Admin.Controllers
             return View(backgroundImages);
         }
 
-
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteGet(int? id)
         {
@@ -157,6 +165,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
 
             if (id == null) return View("Error");
 
@@ -177,6 +186,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             BackgroundImages? backgroundImages = await _context.BackgroundImages.FindAsync(id);
 
             backgroundImages.IsActive = false;

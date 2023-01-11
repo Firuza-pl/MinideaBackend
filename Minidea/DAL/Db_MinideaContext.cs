@@ -24,6 +24,8 @@ namespace Minidea.DAL
                 optionsBuilder.UseSqlServer(@"Server=.;Database=MinideaDb;Trusted_Connection=True;MultipleActiveResultSets=true",
                     builder => builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
             }
+            //Data Source = SQL8004.site4now.net; Initial Catalog = db_a92e67_minideadb; User Id = db_a92e67_minideadb_admin; Password = sundanceFaust123!;
+            //Server=.;Database=MinideaDb;Trusted_Connection=True;MultipleActiveResultSets=true
         }
 
         public DbSet<BackgroundImages> BackgroundImages { get; set; } = default!;

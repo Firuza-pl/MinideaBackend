@@ -66,14 +66,14 @@
 
                 <h2 class="section-heading"> @Model.SubTitle </h2>
                 <hr>
-                <a href="#!" data-aos="fade-down"
-                   data-aos-easing="linear"
-                   data-aos-duration="1500">
+                <a href="#!">
                     <img class="img-fluid"
                          src="~/img/@Model.PhotoUrl"
                          alt="blog">
                     <hr>
-                    <p> @Html.Raw(Model.Text) </p>
+                    <p  data-aos="fade-down"
+                   data-aos-easing="linear"
+                   data-aos-duration="1500"> @Html.Raw(Model.Text) </p>
                     <p class="text-center">Blogun yazılma tarixi: @Model.Date</p>
             </div>
         </div>

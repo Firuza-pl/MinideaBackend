@@ -6,6 +6,7 @@ using Minidea.Extensions;
 using Minidea.Models;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Security.Claims;
 
 namespace Minidea.Areas.Admin.Controllers
 {
@@ -36,6 +37,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             return View(_context.StaticDatas.Where(p => p.IsActive == true).ToList());
         }
 
@@ -46,6 +48,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             ViewBag.Active = "Home";
 
             return View();
@@ -59,6 +62,12 @@ namespace Minidea.Areas.Admin.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
+            }
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Active = "Home";
+
+                return View(staticData);
             }
 
             if (staticData.Photo == null)
@@ -106,6 +115,7 @@ namespace Minidea.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+
             if (id == null) return View("Error");
             StaticData? staticData = _context.StaticDatas.Find(id);
 
@@ -122,6 +132,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             StaticData? newStaticData = await _context.StaticDatas.FindAsync(staticData.Id);
 
             if (newStaticData == null) return View("Error");
@@ -162,6 +173,7 @@ namespace Minidea.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+
             if (id == null) return View("Error");
 
             StaticData? staticData = await _context.StaticDatas.FindAsync(id);
@@ -178,6 +190,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
 
             if (id == null) return View("Error");
 
@@ -198,6 +211,7 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             StaticData? staticData = await _context.StaticDatas.FindAsync(id);
 
             staticData.IsActive = false;
