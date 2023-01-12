@@ -6395,6 +6395,10 @@ fieldset:disabled .btn {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 430px;
+    background-image: url(https://img.freepik.com/free-photo/office-table-with-cup-coffee-keyboard-notepad_1220-4618.jpg?w=900&t=st=1673532642~exp=1673533242~hmac=d4f120435219dee29f6282414933525b8c4b5068cada2dbd2b714dab6396887b);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 10px;
 }
 
 /* width */
@@ -12470,8 +12474,8 @@ header.masthead {
         #portfolio .portfolio-item .portfolio-link .portfolio-hover {
             display: flex;
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 93%;
+            height: 92%;
             background: rgb(29 80 178 / 37%);
             align-items: center;
             justify-content: center;
@@ -12489,9 +12493,10 @@ header.masthead {
         }
 
     #portfolio .portfolio-item .portfolio-caption {
-        padding: 1.5rem;
+        padding: 2.5rem;
         text-align: center;
         background-color: #fff;
+        border-radius:10px;
     }
 
         #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
