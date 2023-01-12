@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Minidea.DAL;
 using Minidea.Models;
 using Minidea.ViewModels;
@@ -17,7 +18,6 @@ namespace Minidea.Controllers
 
         public IActionResult Blogs(int id)
         {
-            if (id == null) return View("Error");
 
             IEnumerable<Blogs> blogs = null;
 
@@ -38,10 +38,32 @@ namespace Minidea.Controllers
                 }
             }
 
+            var list = new List<CategoryCountViewModel>();
+
+            var query = _context.BlogsCategories
+                    .Select(c => new CategoryCountViewModel
+                    {
+                        Id = c.Id,
+                        Name = c.CategoryName,
+                        Count = c.Blogss.Count()
+                    })
+                    .ToList();
+
+            foreach (var item in query)
+            {
+                list.Add(new CategoryCountViewModel
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Count = item.Count
+                });
+            }
+
+
             BlogCategoryList blogCategoryList = new BlogCategoryList
             {
                 Blogs = blogs,
-                Categories = _context.BlogsCategories.ToList(),
+                Categories = list,
                 RecentBlogs = _context.Blogs.OrderByDescending(p => p.Date).Take(4).ToList()
             };
             return View(blogCategoryList);
