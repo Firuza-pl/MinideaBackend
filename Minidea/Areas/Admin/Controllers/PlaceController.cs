@@ -62,6 +62,7 @@ namespace Minidea.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+
             if (placePhoto.AllPhotos == null)
             {
                 ViewBag.Active = "Home";

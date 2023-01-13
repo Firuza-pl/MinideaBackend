@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label asp-for="AdvertismentPlaceId">Məkan adı seçin (böyük başlıq)</label>
                                 <select asp-for="AdvertismentPlaceId" asp-items="@(new SelectList(ViewBag.Place,"Id","BigTitle"))" style="width:100%; padding: 10px;border: 1px solid #e4e9f0;">
-                                    <option value="" hidden disabled selected>Select</option>
+                                    <option value="" hidden disabled selected>--Seçin--</option>
                                 </select>
                                 <span asp-validation-for="AdvertismentPlaceId" class="text-danger"></span>
                             </div>

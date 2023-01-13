@@ -12370,24 +12370,24 @@ p {
         padding-bottom: 1.5rem;
         border: none;
         background-color: #222;
-        ;
-        transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+        transition: all 1s;
     }
 
         #mainNav .navbar-brand {
             font-size: 1.5em;
-            transition: font-size 0.3s ease-in-out;
+            transition: font-size 0.8s ease-in-out;
         }
 
             #mainNav .navbar-brand img {
                 height: 2rem;
-                transition: height 0.3s ease-in-out;
+                transition: height 0.8s ease-in-out;
             }
 
         #mainNav.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
             background-color: #ffffff;
+            transition: all 1s;
         }
 
             #mainNav.navbar-shrink .navbar-brand {
@@ -13058,7 +13058,7 @@ header#single-blog-header {
 }
 
 #myDiv {
-    width: 300px;
+    width: 42px;
     text-align: center;
     margin: 0 auto;
 }

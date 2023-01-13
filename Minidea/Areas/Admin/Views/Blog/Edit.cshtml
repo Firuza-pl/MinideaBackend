@@ -1,5 +1,66 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    @model BlogCategoryVIewModel
+    ViewData["Title"] = "Create";
 }
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Blog yarat</h4>
+                <hr>
+                <form class="forms-sample" method="post" class="mt-4" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CategoryId">Məkan adı seçin (böyük başlıq)</label>
+                                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Category,"Id","CategoryName"))" style="width:100%; padding: 10px;border: 1px solid #e4e9f0;"></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="BigTitle">Blog adı (böyük başlıq)</label>
+                                <input asp-for="BigTitle" class="form-control" id="exampleInputName1" placeholder="böyük başlıq" />
+                                <span asp-validation-for="BigTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="SubTitle">Alt başlıq (kiçik başlıq)</label>
+                                <input asp-for="SubTitle" class="form-control" id="exampleInputName1" placeholder="kiçik başlıq" />
+                                <span asp-validation-for="SubTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Photo">Şəkili seçin</label>
+                                <div class="uploadArea">
+                                    <div class="uploadImage d-flex justify-content-center align-items-center">
+                                    </div>
+                                </div>
+                                <input id="uploadInput" asp-for="Photo" accept="image/*" type="file" class="form-control uploadInput form-control" />
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Text">Mətn </label>
+                                <textarea asp-for="Text" id="my-editor" style="width:100%;" rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputName1"></label>
+                            <input type="submit" class="btn btn-purple btn-icon-text" value="Yarat" />
+                            <button class="btn btn-dark"> <a asp-controller="Blog" asp-action="Blogs"> Geri </a> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
