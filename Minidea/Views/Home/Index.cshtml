@@ -11,18 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Firuza Poladzada-Demo</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&text=%21%22%23%24%25%26%27%28%29%30+,-./0123456789:;%3C=%3E%3F@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`%E2%82%AC„‘’“”™©®°µ±÷abcdefghijklmnopqrstuvwxyz{|}~%C3%9C%C3%96%C4%9E%C4%B0%C6%8F%C3%87%C5%9E%C3%BC%C3%B6%C4%9F%C4%B1%C9%99%C3%A7%C5%9F" rel="stylesheet">
     <link rel="stylesheet" href="~/css/glightbox.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/fakeloader.css">
-
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
 
@@ -67,21 +67,6 @@
     <!-- about-->
     <section class="page-section" id="about">
         <div class="container-fluid">
-            <div class="row bg-light">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <h2 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="800"
-                            class="section-heading text-uppercase" style="padding-top: 20px;">
-                            HAQQIMIZDA
-                        </h2>
-                        <h3 data-aos="zoom-in" data-aos-duration="800" class="section-subheading text-muted"
-                            style="padding-bottom: 20px;">
-                            Lorem ipsum dolor sit
-                            amet consectetur.
-                        </h3>
-                    </div>
-                </div>
-            </div>
             <div class="row overlay">
                 <div class="parallax text-center about-txt">
                     <h2 data-aos="fade-up" data-aos-anchor-placement="center-bottom"
@@ -89,10 +74,15 @@
                         Bİz KİMİK?
                     </h2>
                     <p data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                        “Minidea”-da biz daim yenilənən texnoloji və marketinq həllərini təqib etməklə müştərilərə keyfiyyətli xidmətlər təklif edirik. Komandamız üç əsas istiqamət üzrə ixtisaslaşıb:
+                        “Minidea”-da biz daim yenilənən texnoloji və marketinq həllərini təqib etməklə müştərilərə keyfiyyətli xidmətlər təklif edirik. </br>
+                        Komandamız üç əsas istiqamət üzrə ixtisaslaşıb:
                         Marketinq xidmətləri, reklam və reklam çəkilişləri, İT həllər.
-                        Marketinq xidmətləri özündə marketinq planlamasının hazırlanması və tətbiqi, rəqəmsal marketinq və SMM xidmətlərini, reklam və reklam çəkilişləri isə TV və radiolarda,  binadaxili (indoor) və açıq havada (outdoor) reklamları və reklam çarxlarının çəkilişini ehtiva edir.
+                        </br>
+                        Marketinq xidmətləri özündə marketinq planlamasının hazırlanması və tətbiqi, rəqəmsal marketinq və SMM xidmətlərini,
+                        </br> reklam və reklam çəkilişləri isə TV və radiolarda,  binadaxili (indoor) və açıq havada (outdoor) reklamları və reklam çarxlarının çəkilişini ehtiva edir.
+                        </br>
                         Peşəkar İT komandamız vebsayt və tətbiqlərin, o cümlədən effektiv ERP sistemlərinin hazırlanmasında geniş təcrübəyə sahibdir.
+                        </br>
                         Bizim məqsədimiz sizin inkişafınızdır.
                     </p>
                 </div>
@@ -340,13 +330,16 @@
             <div class="row">
                 <partial name="_BlogPartialView" model="Model.Blogs" />
             </div>
-            <div class="read-more">
-                <div class="row">
-                    <div class="col-md-12">
-                        <label for="read_more"><span><a asp-controller="Blog" asp-action="Blogs">Daha çox →</a></span></label>
+            @if (ViewBag.TotalCount >= 3)
+            {
+                <div class="read-more">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="read_more"><span><a asp-controller="Blog" asp-action="Blogs">Daha çox <i class="fas fa-arrow"></i></a></span></label>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </section>
     <!-- contact-->
@@ -938,7 +931,7 @@
 
             //clear carusel after close
             $("#exampleModal").on("hidden.bs.modal", function() {
-                $('#carrusel').empty();               
+                $('#carrusel').empty();
             });
 
             $(document).scroll(function() {
@@ -947,8 +940,7 @@
             });
 
             $(window).scroll(function() {
-                 var $nav = $(".fixed-top");
-                console.log($(this).scrollTop());
+                var $nav = $(".fixed-top");
                 if ($(this).scrollTop() >= 100) {
                     $('.navbar .navbar-brand img').attr('src', '/img/staticdata/logo-transparent.png');
                     $('.navbar .navbar-brand img').css('transition', 'opacity 1s ease-in-out');

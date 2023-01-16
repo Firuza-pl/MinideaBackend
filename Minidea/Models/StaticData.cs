@@ -37,11 +37,8 @@ namespace Minidea.Models
         [StringLength(100)]
         public string? LinkedinLink { get; set; }
 
-        public string? PhotoURL { get; set; }
-
         [Required(ErrorMessage = "Doldurulması vacibdir")]
         [NotMapped]
-        public IFormFile? Photo { get; set; }
         public bool IsActive { get; set; }
     }
 }

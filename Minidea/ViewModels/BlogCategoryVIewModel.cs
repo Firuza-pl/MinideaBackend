@@ -8,9 +8,10 @@ namespace Minidea.ViewModels
     public class BlogCategoryVIewModel
     {
         public int Id { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "Doldurulması vacibdir"), StringLength(100)]
         public string? CategoryName { get; set; }
 
         [Required(ErrorMessage = "Doldurulması vacibdir"), StringLength(100)]
@@ -26,12 +27,12 @@ namespace Minidea.ViewModels
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        public string PhotoURL { get; set; }
+        public string? PhotoURL { get; set; }
         public BlogsCategories? Category { get; set; }
         public AppUser? User { get; set; }
 
         [Required(ErrorMessage = "Doldurulması vacibdir")]
         [NotMapped]
-        public IFormFile Photo { get; set; }
+        public IFormFile? Photo { get; set; }
     }
 }

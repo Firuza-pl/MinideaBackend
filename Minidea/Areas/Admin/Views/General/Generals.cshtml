@@ -35,7 +35,6 @@
                                     <th>Nömrə 2</th>
                                     <th>Nömrə 3</th>
                                     <th>E-poçt </th>
-                                    <th>Şəkil</th>
                                     <th>Əməliyyatlar</th>
                                 </tr>
                             </thead>
@@ -48,9 +47,6 @@
                                         <td>@item.MobileTwo</td>
                                         <td>@item.MobileThree</td>
                                         <td>@item.Email</td>
-                                        <td class="w-25">
-                                            <img src="~/img/@item.PhotoURL" class="img-fluid img-thumbnail" />
-                                        </td>
                                         <td>
                                             <a title="Sil" asp-action="delete" asp-route-id="@item.Id">
                                                 <button type="button" class="btn btn-inverse-danger btn-icon">

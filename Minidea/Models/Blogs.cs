@@ -22,7 +22,6 @@ namespace Minidea.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [Required,StringLength(100)]
         public string? PhotoUrl { get; set; }
 
         [Required(ErrorMessage = "Doldurulması vacibdir")]

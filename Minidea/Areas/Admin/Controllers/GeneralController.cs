@@ -38,7 +38,7 @@ namespace Minidea.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            return View(_context.StaticDatas.Where(p => p.IsActive == true).ToList());
+            return View(_context.StaticDatas.ToList());
         }
 
         [HttpGet]
@@ -70,24 +70,6 @@ namespace Minidea.Areas.Admin.Controllers
                 return View(staticData);
             }
 
-            if (staticData.Photo == null)
-            {
-                ModelState.AddModelError("Photo", "Xahiş edirik şəkil yükləyin.");
-                return View(staticData);
-            }
-
-            if (!staticData.Photo.IsImage())
-            {
-                ViewBag.Active = "Home";
-
-                ModelState.AddModelError("Photo", "File type should be image");
-
-                return View(staticData);
-            }
-
-            string filename = await staticData.Photo.SaveAsync(_env.WebRootPath, "staticdata");
-            staticData.PhotoURL = filename;
-
             StaticData newStaticData = new StaticData
             {
                 PhoneOne = staticData.PhoneOne,
@@ -97,7 +79,6 @@ namespace Minidea.Areas.Admin.Controllers
                 FacebookLink = staticData.FacebookLink,
                 InstagramLink = staticData.InstagramLink,
                 LinkedinLink = staticData.LinkedinLink,
-                PhotoURL = filename,
                 IsActive = true
             };
 
@@ -136,21 +117,6 @@ namespace Minidea.Areas.Admin.Controllers
             StaticData? newStaticData = await _context.StaticDatas.FindAsync(staticData.Id);
 
             if (newStaticData == null) return View("Error");
-
-
-            if (staticData.Photo != null)
-            {
-                string computerPhoto = Path.Combine(_env.WebRootPath, "img", newStaticData.PhotoURL);
-
-                if (System.IO.File.Exists(computerPhoto))
-                {
-                    System.IO.File.Delete(computerPhoto);
-                }
-
-                string filename = await staticData.Photo.SaveAsync(_env.WebRootPath, "staticdata");
-                staticData.PhotoURL = filename;
-                newStaticData.PhotoURL = staticData.PhotoURL;
-            }
 
             newStaticData.PhoneOne = staticData.PhoneOne;
             newStaticData.MobileTwo = staticData.MobileTwo;

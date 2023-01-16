@@ -24,6 +24,8 @@ namespace Minidea.Controllers
                 Blogs = _context.Blogs.Include(p => p.Category).OrderByDescending(b => b.Id).Take(3).ToList()
             };
 
+            ViewBag.TotalCount = _context.Blogs.Count();
+
             return View(homePageViewModel);
         }
 

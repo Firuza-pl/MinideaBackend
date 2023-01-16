@@ -12,7 +12,7 @@ namespace Minidea.DAL
         {
             var context = serviceProvider.GetService<Db_MinideaContext>();
             //await context.Database.EnsureDeletedAsync();
-            await context.Database.EnsureCreatedAsync();
+            //await context.Database.EnsureCreatedAsync();
 
 
             var user = new AppUser
@@ -39,7 +39,6 @@ namespace Minidea.DAL
                 FacebookLink = "FB",
                 InstagramLink = "INS",
                 LinkedinLink = "LINK",
-                PhotoURL = "/staticdata/logo-transparent",
                 IsActive = true
             };
 

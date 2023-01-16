@@ -66,27 +66,23 @@ namespace Minidea.Areas.Admin.Controllers
                 ViewBag.Active = "Site";
                 ViewBag.Category = _context.BlogsCategories.ToList();
 
-                return View(blogCategoryVIew);
-            }
-
-            if (blogCategoryVIew.CategoryId == null)
-            {
-                ModelState.AddModelError("CategoryId", "Xahiş edirik kateqoriya seçin");
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
                 return View(blogCategoryVIew);
             }
 
             if (blogCategoryVIew.Photo == null)
             {
                 ModelState.AddModelError("Photo", "Xahiş edirik şəkil yükləyin.");
+                ViewBag.Category = _context.BlogsCategories.ToList();
                 return View(blogCategoryVIew);
             }
 
-
+     
             if (!blogCategoryVIew.Photo.IsImage())
             {
                 ViewBag.Active = "Home";
 
-                ModelState.AddModelError("Photo", "File type should be image");
+                ModelState.AddModelError("Photo", "File tipi Image olmalidir");
 
                 return View(blogCategoryVIew);
             }
@@ -94,7 +90,7 @@ namespace Minidea.Areas.Admin.Controllers
             string filename = await blogCategoryVIew.Photo.SaveAsync(_env.WebRootPath, "blogs");
             blogCategoryVIew.PhotoURL = filename;
 
-
+       
             Blogs blogs = new Blogs
             {
                 PhotoUrl = filename,
