@@ -137,3 +137,7 @@ input#uploadInput {
 .table {
     --bs-table-striped-bg: #fff !important;
 }
+
+.menu-icon-admin {
+    border-radius: 10px;
+}

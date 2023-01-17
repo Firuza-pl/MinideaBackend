@@ -12,9 +12,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Firuza Poladzada-Demo</title>
+    <title>Minidea</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="icons/favicon-32x32.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -46,12 +46,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item active"><a class="nav-link" href="#home">Əsas səhifə</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Haqqımızda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Xidmətlər</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio"> Reklam Mekanları</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Əlaqə</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#home">ƏSAS SƏHİFƏ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">HAQQIMIZDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">XİDMƏTLƏR</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">REKLAM MƏKANLARI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">BLOQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">ƏLAQƏ</a></li>
                 </ul>
             </div>
         </div>
@@ -96,14 +96,9 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <h2 data-aos="fade-down" data-aos-easing="linear" data-aos="flip-left" data-aos-duration="800"
-                            class="section-heading text-uppercase" style="padding-top: 10px;">
+                            class="section-heading text-uppercase" style="padding: 15px 15px;">
                             XIDMƏTLƏR
                         </h2>
-                        <h3 data-aos="zoom-in" data-aos-duration="800" class="section-subheading text-muted"
-                            style="padding-bottom: 10px;">
-                            Lorem ipsum dolor sit
-                            amet consectetur.
-                        </h3>
                     </div>
                 </div>
             </div>
@@ -293,14 +288,9 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <h2 data-aos="fade-down" data-aos-easing="linear" data-aos="flip-left" data-aos-duration="800"
-                            class="section-heading text-uppercase" style="padding-top: 10px;">
+                            class="section-heading text-uppercase" style="padding: 15px 15px;">
                             Reklam Mekanlari
                         </h2>
-                        <h3 data-aos="zoom-in" data-aos-duration="800" class="section-subheading text-muted"
-                            style="padding-bottom: 10px;">
-                            Lorem ipsum dolor sit
-                            amet consectetur.
-                        </h3>
                     </div>
                 </div>
             </div>
@@ -314,14 +304,9 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <h2 data-aos="fade-down" data-aos-easing="linear" data-aos="flip-left" data-aos-duration="800"
-                            class="section-heading text-uppercase" style="padding-top: 10px;">
+                            class="section-heading text-uppercase" style="padding: 15px 15px;">
                             Blog
                         </h2>
-                        <h3 data-aos="zoom-in" data-aos-duration="800" class="section-subheading text-muted"
-                            style="padding-bottom: 10px;">
-                            Lorem ipsum dolor sit
-                            amet consectetur.
-                        </h3>
                     </div>
                 </div>
             </div>
@@ -335,7 +320,7 @@
                 <div class="read-more">
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="read_more"><span><a asp-controller="Blog" asp-action="Blogs">Daha çox <i class="fas fa-arrow"></i></a></span></label>
+                            <label for="read_more"><span><a asp-controller="Blog" asp-action="Blogs"> Ətraflı → </a></span></label>
                         </div>
                     </div>
                 </div>
@@ -349,14 +334,9 @@
                 <div class="col-md-12">
                     <div class="text-center">
                         <h2 data-aos="fade-down" data-aos-easing="linear" data-aos="flip-left" data-aos-duration="800"
-                            class="section-heading text-uppercase" style="padding-top: 10px;">
+                            class="section-heading text-uppercase" style="padding: 15px 15px;">
                             Əlaqə
                         </h2>
-                        <h3 data-aos="zoom-in" data-aos-duration="800" class="section-subheading text-muted"
-                            style="padding-bottom: 10px;">
-                            Lorem ipsum dolor sit
-                            amet consectetur.
-                        </h3>
                     </div>
                 </div>
             </div>
@@ -366,10 +346,6 @@
                 <div class="col-md-12" id="map-height">
                     <div id="map"></div>
                     <div data-aos="zoom-in" data-aos-duration="1000" id="contactform">
-                        <p class="color-222">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fugit
-                            dolor voluptatibus in optio laboriosam soluta
-                        </p>
                         @await Component.InvokeAsync("Contact")
                     </div>
                 </div>

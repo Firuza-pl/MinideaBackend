@@ -21,7 +21,7 @@ namespace Minidea.DAL
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=SQL8003.site4now.net;Initial Catalog=db_a92e67_minidb;User Id=db_a92e67_minidb_admin;Password=sundanceFaust123!",
+                optionsBuilder.UseSqlServer(@"Server=.;Database=MinideaDb;Trusted_Connection=True;MultipleActiveResultSets=true",
                     builder => builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
             }
             //Data Source=SQL8004.site4now.net;Initial Catalog=db_a92e67_minideadb;User Id=db_a92e67_minideadb_admin;Password=sundanceFaust123!
