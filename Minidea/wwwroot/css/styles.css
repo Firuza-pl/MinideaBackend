@@ -5088,8 +5088,8 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-toggler {
-    color: rgba(0, 0, 0, 0.55);
-    border-color: rgba(0, 0, 0, 0.1);
+    color: rgb(255 255 255 / 55%);
+    border-color: rgb(255 255 255 / 10%);
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -12496,7 +12496,7 @@ header.masthead {
         padding: 2.5rem;
         text-align: center;
         background-color: #fff;
-        border-radius:10px;
+        border-radius: 10px;
     }
 
         #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
@@ -12766,6 +12766,15 @@ header.masthead {
         }
 }
 
+/*@media screen and (min-width: 300px) and (max-width:1200px) {
+    .navbar-brand {
+        height: 60px !important;
+    }
+}*/
+
+.navbar-brand{
+    height:80px;
+}
 .team-member {
     margin-bottom: 3rem;
     text-align: center;
