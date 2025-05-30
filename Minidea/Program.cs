@@ -15,8 +15,6 @@ builder.Services.AddDbContext<Db_MinideaContext>(options =>
     options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 
-builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
 builder.Services.AddControllersWithViews();
 
 builder.Services.Configure<CookiePolicyOptions>(options =>

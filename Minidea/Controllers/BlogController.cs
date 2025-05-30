@@ -55,7 +55,6 @@ namespace Minidea.Controllers
                 {
                     Id = item.Id,
                     Name = item.Name,
-                    Count = item.Count
                 });
             }
 

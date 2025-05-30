@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Minidea.DAL;
 using Minidea.Extensions;
 using Minidea.Models;
 using Minidea.ViewModels;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Security.Claims;
@@ -21,15 +23,19 @@ namespace Minidea.Areas.Admin.Controllers
         private readonly SignInManager<AppUser> _siginInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _env;
-
-        public PlaceController(Db_MinideaContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> siginInManager, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
+		private readonly ILogger<PlaceController> _logger;
+		public PlaceController(Db_MinideaContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, 
+            SignInManager<AppUser> siginInManager, Microsoft.AspNetCore.Hosting.IHostingEnvironment env, ILogger<PlaceController> logger)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _siginInManager = siginInManager;
             _env = env;
-        }
+			_logger = logger;
+		}
+		[Required, StringLength(100)]
+		public string? PhotoURL { get; set; }
 
         public IActionResult Places()
         {
@@ -62,7 +68,6 @@ namespace Minidea.Areas.Admin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-
             if (placePhoto.AllPhotos == null)
             {
                 ViewBag.Active = "Home";
@@ -70,31 +75,30 @@ namespace Minidea.Areas.Admin.Controllers
                 return View(placePhoto);
             }
 
-            foreach (var p in placePhoto.AllPhotos)
-            {
-                if (p != null)
+                foreach (var p in placePhoto.AllPhotos)
                 {
-                    if (p.ContentType.Contains("image/"))
+                    if (p != null)
                     {
-                        string filename = await p.SaveAsync(_env.WebRootPath, "placePhoto");
-
-                        AdvertismentPhoto img = new AdvertismentPhoto()
+                        if (p.ContentType.Contains("image/"))
                         {
-                            AdvertismentPlaceId = placePhoto.AdvertismentPlaceId,
-                            AreaTitle = placePhoto.AreaTitle,
-                            PhotoURL = filename,
-                            IsMain = true
+                            string filename = await p.SaveAsync(_env.WebRootPath, "placePhoto");
 
-                        };
+                            AdvertismentPhoto img = new AdvertismentPhoto()
+                            {
+                                AdvertismentPlaceId = placePhoto.AdvertismentPlaceId,
+                                AreaTitle = placePhoto.AreaTitle,
+                                PhotoURL = filename,
+                                IsMain = true
 
-                        await _context.AdvertismentPhotos.AddAsync(img);
+                            };
+                            await _context.AdvertismentPhotos.AddAsync(img);
+                        }
                     }
                 }
-            }
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return RedirectToAction("Edit", new { id = placePhoto.AdvertismentPlaceId });
-        }
+                return RedirectToAction("Edit", new { id = placePhoto.AdvertismentPlaceId });
+            }
 
         [ActionName("Edit")]
         public IActionResult Edit(int? id)
@@ -125,47 +129,59 @@ namespace Minidea.Areas.Admin.Controllers
             return View(advertismentPhoto);
         }
 
-        [ActionName("EditPhotoLine")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPhotoLine(AdvertismentPhoto photoLineViewModel)
-        {
+		[ActionName("EditPhotoLine")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditPhotoLine(AdvertismentPhoto photoLineViewModel)
+		{
+			if (!User.Identity.IsAuthenticated)
+			{
+				return RedirectToAction("Login", "Account");
+			}
+			
+			var existingPhoto = await _context.AdvertismentPhotos.FindAsync(photoLineViewModel.Id); // Fetch the existing photo from database
+			if (existingPhoto == null)
+			{
+				return View("Error", new { message = "Photo not found." });
+			}
 
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+			if (photoLineViewModel.Photo != null)
+			{
+				var oldPhotoPath = Path.Combine(_env.WebRootPath, "img", existingPhoto.PhotoURL); // Construct full path for the old photo
 
-            AdvertismentPhoto? newBackgroundImages = await _context.AdvertismentPhotos.FindAsync(photoLineViewModel.Id);
+				// Delete old photo if exists
+				if (System.IO.File.Exists(oldPhotoPath))
+				{
+					try
+					{
+						System.IO.File.Delete(oldPhotoPath);
+					}
+					catch (Exception ex)
+					{
+						 _logger.LogError(ex, "Failed to delete old photo");
+					}
+				}
+				string newFileName = await photoLineViewModel.Photo.SaveAsync(_env.WebRootPath, "placePhoto"); // Save new photo
+				existingPhoto.PhotoURL = newFileName;
+			}
 
-            if (newBackgroundImages == null) return View("Error");
+			existingPhoto.IsMain = true;
+			existingPhoto.AreaTitle = photoLineViewModel.AreaTitle;
+			
+            var advertismentPlace = await _context.AdvertismentPlaces
+				.FindAsync(existingPhoto.AdvertismentPlaceId);
 
+			if (advertismentPlace == null)
+			{
+				return View("Error", new { message = "Related AdvertismentPlace not found." });
+			}
 
-            if (photoLineViewModel.Photo != null)
-            {
-                string computerPhoto = Path.Combine(_env.WebRootPath, "img", newBackgroundImages.PhotoURL);
+			await _context.SaveChangesAsync();
 
-                if (System.IO.File.Exists(computerPhoto))
-                {
-                    System.IO.File.Delete(computerPhoto);
-                }
+			return RedirectToAction(nameof(Edit), new { id = advertismentPlace.Id });
+		}
 
-                string filename = await photoLineViewModel.Photo.SaveAsync(_env.WebRootPath, "placePhoto");
-                photoLineViewModel.PhotoURL = filename;
-                newBackgroundImages.PhotoURL = photoLineViewModel.PhotoURL;
-            }
-
-            newBackgroundImages.IsMain = true;
-            newBackgroundImages.AreaTitle = photoLineViewModel.AreaTitle;
-
-            AdvertismentPlace advertismentPlace = _context.AdvertismentPlaces.Find(newBackgroundImages.AdvertismentPlaceId);
-
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Edit), new { id = advertismentPlace.Id });
-        }
-
-        [ActionName("Delete")]
+		[ActionName("Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -184,49 +200,58 @@ namespace Minidea.Areas.Admin.Controllers
             return View(data);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public async Task<IActionResult> Delete(AdvertismentPhoto advertismentPhoto)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		[ActionName("Delete")]
+		public async Task<IActionResult> Delete(AdvertismentPhoto advertismentPhoto)
+		{
+			if (!User.Identity.IsAuthenticated)
+			{
+				_logger.LogWarning("Unauthorized attempt to delete AdvertismentPhoto with ID {PhotoId}", advertismentPhoto.Id);
+				return RedirectToAction("Login", "Account");
+			}
 
-            AdvertismentPhoto? data = await _context.AdvertismentPhotos.FindAsync(advertismentPhoto.Id);
+			try
+			{
+				var data = await _context.AdvertismentPhotos.FindAsync(advertismentPhoto.Id);
 
+				if (data == null)
+				{
+					_logger.LogWarning("AdvertismentPhoto with ID {PhotoId} not found for deletion", advertismentPhoto.Id);
+					return NotFound();
+				}
 
-#pragma warning disable CS8604 // Possible null reference argument.
-            string computerPhoto = Path.Combine(_env.WebRootPath, "img", data.PhotoURL);
-#pragma warning restore CS8604 // Possible null reference argument.
+				if (!string.IsNullOrEmpty(data.PhotoURL))
+				{
+					string computerPhoto = Path.Combine(_env.WebRootPath, "img", data.PhotoURL);
 
-            if (System.IO.File.Exists(computerPhoto))
-            {
-                System.IO.File.Delete(computerPhoto);
-            }
+					if (System.IO.File.Exists(computerPhoto))
+					{
+						System.IO.File.Delete(computerPhoto);
+						_logger.LogInformation("Deleted photo file at path {PhotoPath}", computerPhoto);
+					}
+					else
+					{
+						_logger.LogWarning("Photo file not found at path {PhotoPath} when deleting AdvertismentPhoto ID {PhotoId}", computerPhoto, advertismentPhoto.Id);
+					}
+				}
 
-            _context.AdvertismentPhotos.Remove(data);
+				_context.AdvertismentPhotos.Remove(data);
+				await _context.SaveChangesAsync();
 
-            await _context.SaveChangesAsync();
-            ViewBag.Active = "Home";
+				_logger.LogInformation("AdvertismentPhoto with ID {PhotoId} deleted successfully", advertismentPhoto.Id);
 
-            return RedirectToAction(nameof(Edit), new { id = data.AdvertismentPlaceId });
-        }
+				ViewBag.Active = "Home";
+				return RedirectToAction(nameof(Edit), new { id = data.AdvertismentPlaceId });
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError(ex, "Error occurred while deleting AdvertismentPhoto with ID {PhotoId}", advertismentPhoto.Id);
+				return View("Error");
+			}
+		}
 
-        //SİNGLE PLACE
-        public IActionResult CreateSinglePlace(int? id)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
-            ViewBag.Active = "Home";
-            return View();
-        }
-
-        [HttpPost]
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateSinglePlace(AdvertismentPlace advertismentPlace)
         {

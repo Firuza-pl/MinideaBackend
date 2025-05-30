@@ -1,5 +1,5 @@
 .navbar .navbar-menu-wrapper {
-    background: linear-gradient(0deg, #f36f64 1%, #f36f64 99%) !important;
+    background: #1e293b !important;
 }
 
 .sidebar .nav .nav-item:not(:nth-child(2)).active {
@@ -17,7 +17,7 @@
     color: #2a2e5e !important;
 }*/
 .sidebar {
-    background: linear-gradient(0deg, #f36f64 1%, #f36f64 99%) !important;
+    background: #191C24 !important;
 }
 
 button a {
@@ -29,7 +29,7 @@ button.btn-dark:hover a {
 }
 
 .btn-purple {
-    background: #f36f64;
+    background: #f1ca5c;
     color: #fff;
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
-    background: #000000;
+    background: #1e293b66 !important;
 }
 
 #main-table td a {
@@ -64,7 +64,7 @@ table#main-table th img, table#main-table td img {
 }
 
 thead {
-    background: rgb(24 24 24 / 78%);
+    background: #AF1763;
     color: #fff;
 }
 
@@ -83,8 +83,8 @@ thead {
 }
 
 .menu-icon-admin {
-    border: 3px solid #f36f64;
-    background: #f36f64;
+    border: 3px solid #992a62;
+    background: #AF1763;
     color: #fff;
     padding: 60px 20px;
     cursor: pointer;
@@ -105,20 +105,79 @@ thead {
         font-size: 20px;
     }
 
+.form-control, select {
+    border-radius: 0.5rem;
+    border: 1px solid #cbd5e0;
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+}
+
+label {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+input[type="submit"],
+.btn-purple {
+    background-color: #6366F1;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+
+    input[type="submit"]:hover,
+    .btn-purple:hover {
+        background-color: #4F46E5;
+    }
+
+.btn-dark a {
+    color: white;
+    text-decoration: none;
+}
+
+    .btn-dark a:hover {
+        color: #cbd5e0;
+    }
+
+.uploadInput {
+    background-color: #f9fafb;
+}
+
+.uploadArea {
+    border: 2px dashed #cbd5e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+}
+
+
 .btn-purple:hover {
-    border: 1px solid #cd473c;
-    background: #b3372d;
-    transition:all 0.5s;
+    border: 1px solid #e7c860;
+    background: #e7c860;
+    transition: all 0.5s;
 }
 
 .menu-icon-admin:hover {
-    border: 3px solid #cd473c;
-    background: #b3372d;
+    border: 3px solid #992a62;
+    background: #AF1763;
 }
 
     .menu-icon-admin:hover p, .menu-icon-admin:hover i {
         color: #fff;
     }
+
+.mdi-delete-forever {
+    color: #AB2E3C;
+}
+.mdi-table-edit {
+    color: #198754;
+}
+.mdi-information-variant {
+    color: #FFC107;
+}
 
 input#uploadInput {
     display: inline-block;

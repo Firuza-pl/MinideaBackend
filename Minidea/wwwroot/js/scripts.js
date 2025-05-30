@@ -1,5 +1,11 @@
 window.addEventListener('DOMContentLoaded', event => {
 
+
+    $(".nav-item").click(function () {
+        $(".nav-item").removeClass("active");
+        $(this).addClass("active");
+    });
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');

@@ -63,7 +63,7 @@
             $('.navbar .navbar-brand img').css('transition', 'opacity 1s ease-in-out');
         }
 
-        var middleScreen = window.matchMedia("(min-width: 300px) and (max-width: 1200px");
+        var middleScreen = window.matchMedia("(min-width: 300px) and (max-width: 1200px)");
 
         if (middleScreen.matches) {
             if ($(this).scrollTop() > $nav.height()) {

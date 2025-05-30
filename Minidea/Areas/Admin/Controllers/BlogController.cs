@@ -65,7 +65,6 @@ namespace Minidea.Areas.Admin.Controllers
             {
                 ViewBag.Active = "Site";
                 ViewBag.Category = _context.BlogsCategories.ToList();
-
                 var errors = ModelState.Values.SelectMany(v => v.Errors);
                 return View(blogCategoryVIew);
             }
@@ -81,9 +80,7 @@ namespace Minidea.Areas.Admin.Controllers
             if (!blogCategoryVIew.Photo.IsImage())
             {
                 ViewBag.Active = "Home";
-
                 ModelState.AddModelError("Photo", "File tipi Image olmalidir");
-
                 return View(blogCategoryVIew);
             }
 

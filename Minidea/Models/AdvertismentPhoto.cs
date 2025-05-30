@@ -15,7 +15,7 @@ namespace Minidea.Models
         [Required]
         public string? AreaTitle { get; set; }
 
-        [Required, StringLength(100)]
+        [Required, StringLength(500)]
         public string? PhotoURL { get; set; }
 
         [Required]
